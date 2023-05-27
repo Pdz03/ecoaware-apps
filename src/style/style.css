@@ -55,11 +55,23 @@ img{
     text-decoration: none;
     padding:10px;
 }
-
-
-.slider{
-    background-color: pink;
-    height:200px;
+.hero {
+	display: flex;
+	align-items: center;
+	min-height: 250px;
+	width: 100%;
+	text-align: center;
+	background-position: center;
+	background-color: Black !important
+}
+.inner-hero {
+	margin: 0 auto;
+	max-width: 800px
+}
+.judul-hero {
+	color: #fff;
+	font-weight: 400;
+	font-size: 32px;
 }
 
 #content{
@@ -73,6 +85,25 @@ article{
     background-color: aquamarine;
     min-height:500px;
 }
+.about,
+.visi,
+.tim {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.visi .vimis {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  text-align: center;
+}
+
+
 
 aside{
     display: flex;
@@ -80,7 +111,7 @@ aside{
 
 
 footer{
-	background-color: f2f2f2;
+	background-color: #679366;
 	color: black;
 	font-size: 14px;
 	padding: 2em;
