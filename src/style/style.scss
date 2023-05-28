@@ -152,18 +152,18 @@ body{
     .hero{
         display: flex;
         align-items: center;
-        min-height: 250px;
+        min-height: 350px;
         width: 100%;
         text-align: center;
-        background-position: center;
         background-color: Black !important;
         background-image: linear-gradient(
-            rgba(2, 2, 9, 0.8),
-            rgba(2, 2, 9, 0.8)
+            rgba(2, 2, 9, 0.7),
+            rgba(2, 2, 9, 0.7)
           ),
           url('../public/images/hero-image.jpeg');
-        background-repeat: no-repeat;
-        background-size: auto;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
         .inner-hero {
             margin: 0 auto;
             max-width: 800px;
@@ -175,11 +175,10 @@ body{
         }
     }
 }
-    main{
-        #content{
+        #mainContent{
             display:flex;
             justify-content: space-between;
-            article{
+            main{
                 display:flex;
                 width:70%;
                 background-color: aquamarine;
@@ -189,7 +188,6 @@ body{
                 display: flex;
             }
         }        
-    }
     footer{
         background-color: #679366;
         color: black;
