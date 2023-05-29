@@ -1,23 +1,17 @@
 import '../component/hero-element';
 
-const Home = {
+const Dashboard = {
   async render() {
     const html = `
-    <hero-element></hero-element>
     <div id="main">
     <main id="content">
-    <section class="content">
       <div class="title">
-        <h1>Isu Mengenai Perubahan Iklim</h1>
+        <h1>Dashboard</h1>
         <hr>
         <div class="list" id="resto">
         </div>
       </div>
-    </section>
   </main>
-  <aside>
-    <section>samping</section>
-  </aside>
   </div>
         `;
     return html;
@@ -29,4 +23,4 @@ const Home = {
     // itemContainer.value = restaurants;
   },
 };
-export default Home;
+export default Dashboard;

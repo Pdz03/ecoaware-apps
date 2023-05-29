@@ -18,7 +18,7 @@ class AppBar extends HTMLElement {
     </div>
     <nav id="drawer" class="navmob">
       <ul class="navlistmob">
-        <li class="navitemsmob"><a href="./index.html">Home</a></li>
+        <li class="navitemsmob"><a href="#/home">Home</a></li>
         <li class="navitemsmob">
           <a href="../scripts/views/pages/tentang-kami.html">Our story</a>
         </li>
@@ -27,6 +27,9 @@ class AppBar extends HTMLElement {
             >About Us</a
           >
         </li>
+        <li class="navitemsmob">
+        <a href="/login" target="_blank">Login</a>
+      </li>
       </ul>
     </nav>
     <nav class="nav">
@@ -37,7 +40,7 @@ class AppBar extends HTMLElement {
       <h2 class="title">EcoAware Apps</h2>
     </div>
     <ul class="navlist">
-      <li class="navitems"><a href="./index.html">Home</a></li>
+      <li class="navitems"><a href="#/home">Home</a></li>
       <li class="navitems">
         <a href="../scripts/views/pages/tentang-kami.html">Our story</a>
       </li>
@@ -46,6 +49,7 @@ class AppBar extends HTMLElement {
           >About Us</a
         >
       </li>
+      <li class="navitems"><a href="#/login">Login</a></li>
     </ul>
   </nav>
    `;
