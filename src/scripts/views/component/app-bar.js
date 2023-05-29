@@ -20,7 +20,7 @@ class AppBar extends HTMLElement {
       <ul class="navlistmob">
         <li class="navitemsmob"><a href="#/home">Home</a></li>
         <li class="navitemsmob">
-          <a href="../scripts/views/pages/tentang-kami.html">Our story</a>
+          <a href="#/ourstory">Our story</a>
         </li>
         <li class="navitemsmob">
           <a href="https://github.com/Pdz03/ecoaware-apps" target="_blank"
@@ -42,7 +42,7 @@ class AppBar extends HTMLElement {
     <ul class="navlist">
       <li class="navitems"><a href="#/home">Home</a></li>
       <li class="navitems">
-        <a href="../scripts/views/pages/tentang-kami.html">Our story</a>
+        <a href="#/ourstory">Our story</a>
       </li>
       <li class="navitems">
         <a href="https://github.com/Pdz03/ecoaware-apps" target="_blank"
