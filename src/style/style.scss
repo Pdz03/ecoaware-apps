@@ -8,8 +8,7 @@ body{
     header{
         app-bar{
             .navmob.open{
-                @media screen and (max-width: 599px) {
-                    z-index: 999;
+                @media screen and (max-width: 600px) {
                     -webkit-transform: translate(0, 0);
                     transform: translate(0, 0);
                 }
@@ -68,10 +67,9 @@ body{
                     display:none;
                 }
                 @media screen and (max-width: 599px) {
-                    z-index: 10;
                     width: 40%;
                     right:0;
-                    position: absolute;
+                    position:fixed;
                     -webkit-transform: translate(200%, 0);
                     transform: translate(200%, 0);
                     transition: transform 0.3s ease
@@ -190,6 +188,88 @@ body{
         #register{
             #form-register{
                 padding:100px;
+            }
+        }
+        .temi{
+            padding: 40px;
+            .about{
+                h1{
+                    text-decoration: underline;
+                }
+                #about-container{
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-column-gap: 10px;
+                    img{
+                        width:500px;
+                        height:300px;
+                        object-fit: cover;
+                    }
+                    h1{
+                        text-decoration: underline;
+                    }
+                }
+            }
+            .visi{
+                h1{
+                    text-decoration: underline;
+                }
+            }
+            .about,
+            .visi,
+            .tim {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              margin-bottom: 100px;
+              margin-left: 10px;
+              margin-right: 10px;
+            }
+            .visi .vimis {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 10px;
+                text-align: center;
+            }
+
+            .tim{
+                h1{
+                    text-decoration: underline;
+                }
+                .tim-container{
+                    @media screen and (min-width: 700px) {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        grid-column-gap: 10px;
+                        grid-row-gap: 16px;
+                    }
+                    @media screen and (min-width: 900px) {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr 1fr 1fr;
+                    }
+                    display: grid;
+                    grid-column-gap: 10px;
+                    grid-row-gap: 16px;
+                .list-tim{
+                    min-width:180px;
+                    min-height:70px;
+                    margin:5px;
+                    padding:5px;
+                    border-radius: 5px;
+                    border: 2px solid black;
+                    #atas{
+                        width:100%;
+                        height:120px;
+                        background-color: #444736;
+                    }
+                    p{
+                        text-align: center;
+                        padding:5px;
+                        font-size:15px;
+                        font-weight:600;
+                    }
+                }
+                }
             }
         }
     }        

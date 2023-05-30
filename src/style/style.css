@@ -67,24 +67,6 @@ article{
     background-color: aquamarine;
     min-height:500px;
 }
-.about,
-.visi,
-.tim {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.visi .vimis {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
-  text-align: center;
-}
-
 
 
 aside{

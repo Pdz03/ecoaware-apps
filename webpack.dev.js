@@ -24,4 +24,10 @@ module.exports = merge(common, {
     new BundleAnalyzerPlugin(),
     new CleanWebpackPlugin(),
   ],
+  resolve: {
+    extensions: ['.js'],
+    alias: {
+      mysql: 'mysql',
+    },
+  },
 });
