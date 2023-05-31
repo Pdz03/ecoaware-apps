@@ -4,8 +4,8 @@ const WelcomeTemplate = () => `
 <p>“Mari kita pelihara alam bersama EcoAware,
 agar kita memiliki masa depan yang lebih baik.”</p>
 <div class="button-element">
-<button class="btn">Masuk</button>
-<button class="btn">Daftar</button>
+<a class="btn" href="#/login">Masuk</a>
+<a class="btn" href="#/register">Daftar</a>
 </div>
 </div>
 <div class="welcome-image">
@@ -14,78 +14,44 @@ agar kita memiliki masa depan yang lebih baik.”</p>
 `;
 
 const FormLoginTemplate = () => `
-<div class="row h-100 justify-content-center align-items-center">
-  <form action="#/dashboard" method="POST" class="col-md-4 card">
-    <h2>Login</h2>
-    <div class="form-group">
-      <label>Email:</label>
-      <input
-        type="email"
-        name="email"
-        class="form-control"
-        placeholder="Masukan email"
-        required
-      />
-    </div>
-    <div class="form-group">
-      <label>Password:</label>
-      <input
-        type="password"
-        name="pass"
-        class="form-control"
-        placeholder="Masukan password"
-        required
-      />
-    </div>
-    <a href="#/dashboard" class="btn btn-primary">Login</a>
-    <button type="submit" name="login">Login</button>
-    <a href="#/register" class="btn btn-success">Register</a>
-  </form>
+<div class="login-image">
+<img src="./images/register-login-image.png" alt="login-image">
 </div>
+<div class="login-text">
+<h2>Masuk</h2>
+<form action="#/login" method="POST">
+          <div class="form-group">
+            <input type="email" name="email" class="form-control" placeholder="Email" required/>
+          </div>
+          <div class="form-group">
+            <input type="password" name="pass" class="form-control" placeholder="Password" required/>
+          </div>
+<button type="submit" class="btn">Masuk</button>
+<p>Belum punya akun? <a href="#/register">Daftar</a></p>
+</form>
 </div>
 `;
 
 const FormRegisterTemplate = () => `
-<div class="row h-100 justify-content-center align-items-center">
-        <form
-          action="#/login"
-          method="GET"
-          class="col-md-4 card"
-        >
-          <h2>Form Registrasi</h2>
-          <div class="form-group">
-            <label>Nama:</label>
-            <input
-              type="text"
-              name="username"
-              class="form-control"
-              placeholder="Masukan Nama"
-              required
-            />
+<div class="register-image">
+<img src="./images/register-login-image.png" alt="register-image">
+</div>
+<div class="register-text">
+<h2>Daftar</h2>
+<form action="#/login" method="POST">
+<div class="form-group">
+            <input type="text" name="username" class="form-control" placeholder="Username" required/>
           </div>
           <div class="form-group">
-            <label>Email:</label>
-            <input
-              type="email"
-              name="email"
-              class="form-control"
-              placeholder="Masukan Email"
-              required
-            />
+            <input type="email" name="email" class="form-control" placeholder="Email" required/>
           </div>
           <div class="form-group">
-            <label>Password:</label>
-            <input
-              type="password"
-              name="pass"
-              class="form-control"
-              placeholder="Masukan Password"
-              required
-            />
+            <input type="password" name="pass" class="form-control" placeholder="Password" required/>
           </div>
-          <a href="#/login" class="btn btn-primary">Daftar</a>
-        </form>
-      </div>
+<button type="submit" class="btn">Daftar</button>
+<p>Sudah punya akun? <a href="#/login">Masuk</a></p>
+</form>
+</div>
 `;
 
 const ourStoryTemplate = () => `

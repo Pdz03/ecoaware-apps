@@ -1,4 +1,5 @@
 @import 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap';
 
 * {
     padding: 0;
@@ -110,8 +111,9 @@ body{
                 align-items: center;
                 justify-content: space-between;
                 background-color: white;
-                box-shadow: 0 8px 8px 0 rgba(68, 71, 54, 0.2);
                 padding: 10px;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                margin-bottom: 20px;
                 .title-bar{
                     display:flex;
                     .logo{
@@ -142,13 +144,18 @@ body{
                         color:rgb(0, 0, 0);
                         text-decoration: none;
                         padding:10px;
+                        font-weight: 600;
+                        font-size: 20px;
+                        img{
+                            height:25px;
+                        }
                     }
                 }
             }
         }
     }
     #mainContent{
-        min-height: 500px;
+        margin-bottom:80px;
         hero-element{
             .hero{
                 display: flex;
@@ -183,20 +190,180 @@ body{
                 display:flex;
                 width:70%;
                 background-color: aquamarine;
-                min-height:500px;
             }
             aside{
                 display: flex;
             }
         }
         main{
-            min-height: 500px;
             padding: 40px 80px 40px 80px;
             #form-login{
-                padding:100px;
+                display: grid;
+                justify-content: center;
+                align-content: center;
+              
+                gap: 100px;
+                grid-auto-flow: column;
+                .login-text{
+                    display:grid;
+                    width:400px;
+                    height:500px;
+                    padding:30px;
+                    h2{
+                        padding-top:50px;
+                        margin-bottom:40px;
+                        color: #8BB68A;
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: bold;
+                        text-align: center;
+                    }
+                    p{
+                        font-size: 24px;
+                        font-family: 'Inter', sans-serif;
+                    }
+                    form{
+                        .form-group{
+                            input{
+                                background-color: #E8ECF1;
+                                border:0;
+                            }
+                            input:focus{
+                                background-color: #ffffff;
+                            }
+                            input:valid{
+                                background-color: #f8f8f8;
+                                border:1px black solid;
+                            }
+                            input::placeholder{
+                                color: #9c9c9c;
+                            }
+                            input::-webkit-input-placeholder{
+                                color: #9c9c9c;
+                            }
+                        }
+                    }
+                    .btn{
+                        background-color: #8BB68A;
+                        width:100%;
+                        border-radius: 10px;
+                        color:white;
+                        font-size: 20px;
+                        font-weight: 500;
+                        margin-top:30px;
+                    }
+                    .btn:hover{
+                        background-color: #718870;
+                    }
+                    p{
+                        margin-top: 20px;
+                        color: #878585;
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: bold;
+                        font-size: 20px;
+                        a{
+                            color: #8BB68A;
+                            font-family: 'Roboto', sans-serif;
+                            font-weight: bold;
+                        }
+                    }
+                }
+                .login-image{
+                    display:grid;
+                    width:500px;
+                    height:500px;
+                    justify-content: center;
+                    align-content: center;
+                    padding:40px;
+                    img{
+                        width:100%;
+                        height:100%;
+                        object-fit: cover;
+                    }
+                }
             }
             #form-register{
-                padding:100px;
+                display: grid;
+                justify-content: center;
+                align-content: center;
+              
+                gap: 100px;
+                grid-auto-flow: column;
+                .register-text{
+                    display:grid;
+                    width:400px;
+                    height:500px;
+                    padding:30px;
+                    h2{
+                        padding-top:50px;
+                        margin-bottom:40px;
+                        color: #8BB68A;
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: bold;
+                        text-align: center;
+                    }
+                    p{
+                        font-size: 24px;
+                        font-family: 'Inter', sans-serif;
+                    }
+                    form{
+                        .form-group{
+                            input{
+                                background-color: #E8ECF1;
+                                border:0;
+                            }
+                            input:focus{
+                                background-color: #ffffff;
+                            }
+                            input:valid{
+                                background-color: #f8f8f8;
+                                border:1px black solid;
+                            }
+                            input::placeholder{
+                                color: #9c9c9c;
+                            }
+                            input::-webkit-input-placeholder{
+                                color: #9c9c9c;
+                            }
+                        }
+                    }
+                    .btn{
+                        background-color: #8BB68A;
+                        width:100%;
+                        border-radius: 10px;
+                        color:white;
+                        font-size: 20px;
+                        font-weight: 500;
+                        margin-top:30px;
+                    }
+                    .btn:hover{
+                        background-color: #718870;
+                    }
+                    p{
+                        margin-top: 20px;
+                        color: #878585;
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: bold;
+                        font-size: 20px;
+                        a{
+                            color: #8BB68A;
+                            font-family: 'Roboto', sans-serif;
+                            font-weight: bold;
+                        }
+                    }
+                }
+                .register-image{
+                    display:grid;
+                    width:500px;
+                    height:500px;
+                    justify-content: center;
+                    align-content: center;
+                    padding:40px;
+                    img{
+                        width:100%;
+                        height:100%;
+                        object-fit: cover;
+                    }
+                }
             }
             #welcome-container{
                 display: grid;
@@ -205,23 +372,30 @@ body{
               
                 gap: 50px;
                 grid-auto-flow: column;
-                padding-top:50px;
                 .welcome-text{
                     display:grid;
-                    width:400px;
-                    height:300px;
-                    padding:30px 0 30px 0;
+                    width:600px;
+                    height:400px;
+                    padding:30px 0 30px 30px;
                     h2{
+                        padding-top:50px;
+                        margin-bottom:0;
                         color: #8BB68A;
-                        font-size:38px;
+                        font-size:55px;
                         font-family: 'Roboto', sans-serif;
+                        font-weight: bold;
+                    }
+                    p{
+                        font-size: 24px;
+                        font-family: 'Inter', sans-serif;
                     }
                     .button-element{
                         display:grid;
                         justify-content: center;
                         align-content: center;
-                        gap: 40px;
+                        gap: 50px;
                         grid-auto-flow: column;
+                        padding-right:30px;
                         .btn{
                             background-color: #8BB68A;
                             border-radius: 10px;
@@ -238,8 +412,8 @@ body{
                 }
                 .welcome-image{
                     display:grid;
-                    width:400px;
-                    height:300px;
+                    width:500px;
+                    height:400px;
                     justify-content: center;
                     align-content: center;
                     padding:30px;
