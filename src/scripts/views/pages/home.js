@@ -1,5 +1,4 @@
 import '../component/hero-element';
-import axios from 'axios';
 import { getNews } from '../../Data/news';
 
 const Home = {
@@ -10,15 +9,15 @@ const Home = {
         <main id="content">
           <section class="content">
             <div class="title">
-              <h1>Isu Mengenai Perubahan Iklim</h1>
-              <hr>
-              <div class="list" id="resto">
-                <div id="news-list"></div> 
-              </div>
+              <h1>Isu Terkini Terkait Perubahan Iklim</h1>
+            </div>
+            <hr>
+            <div class="list" id="resto">
+              <div id="news-list"></div> 
             </div>
           </section>
         </main>
-        <aside>
+        <aside hidden>
           <section>samping</section>
         </aside>
       </div>
@@ -37,12 +36,16 @@ const Home = {
       <div class="news-item">
       <img src="${beritaItem.gambar}" alt="${beritaItem.judul}" />
       <div class="news-content">
+        <div class="title">
         <h3>${beritaItem.judul}</h3>
         <p>Tanggal: ${beritaItem.tanggal}</p>
-        <p>${beritaItem.isi}</p>
+        </div>
+        <div class="content">
+        <p>${beritaItem.isi.slice(0, 200)}...</p>
+        <a href="#/detail/${beritaItem.id}">Lihat Selengkapnya</a>
+        </div>
       </div>
     </div>
-    <hr>
       `;
       newsListElement.innerHTML += listItemHtml;
     });
