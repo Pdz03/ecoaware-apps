@@ -22,6 +22,8 @@ body{
                 justify-content: space-between;
                 background-color: #f2f2f2;
                 padding: 10px;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                margin-bottom: 20px;
                 .title-bar{
                    display:flex;
                    .logo{
@@ -38,6 +40,7 @@ body{
                     .title{
                        display:flex;
                        padding:10px;
+                       color:#728F71;
                     }
                 }
                 .menumob {
@@ -106,6 +109,8 @@ body{
                 justify-content: space-between;
                 background-color: #f2f2f2;
                 padding: 10px;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                margin-bottom: 20px;
                 .title-bar{
                     display:flex;
                     .logo{
@@ -122,6 +127,7 @@ body{
                     .title{
                         display:flex;
                         padding:5px;
+                        color:#728F71;
                     }
                 }
                 .navlist {
@@ -152,7 +158,7 @@ body{
                     rgba(2, 2, 9, 0.7),
                     rgba(2, 2, 9, 0.7)
                 ),
-                url('../public/images/hero-image.jpeg');
+                url('../public/images/image2.jpg');
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -173,7 +179,7 @@ body{
             main{
                 display:flex;
                 width:70%;
-                background-color: aquamarine;
+                background-color: #fff;
                 min-height:500px;
             }
             aside{
