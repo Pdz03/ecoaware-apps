@@ -4,7 +4,7 @@ const Home = {
   async render() {
     const html = `
     <hero-element></hero-element>
-    <div id="main">
+    <div id="main-container">
     <main id="content">
     <section class="content">
       <div class="title">

@@ -3,7 +3,7 @@ import { FormLoginTemplate } from '../templates/template-ecoaware';
 const Login = {
   async render() {
     const html = `
-      <main id="login">
+      <main>
       <div class="container h-50" id="form-login">
     </div>
     </main>

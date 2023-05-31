@@ -1,3 +1,18 @@
+const WelcomeTemplate = () => `
+<div class="welcome-text">
+<h2>Halo, Selamat Datang!</h2>
+<p>“Mari kita pelihara alam bersama EcoAware,
+agar kita memiliki masa depan yang lebih baik.”</p>
+<div class="button-element">
+<button class="btn">Masuk</button>
+<button class="btn">Daftar</button>
+</div>
+</div>
+<div class="welcome-image">
+<img src="./images/welcome-image.png" alt="welcome-image">
+</div>
+`;
+
 const FormLoginTemplate = () => `
 <div class="row h-100 justify-content-center align-items-center">
   <form action="#/dashboard" method="POST" class="col-md-4 card">
@@ -77,7 +92,7 @@ const ourStoryTemplate = () => `
 <div class="about">
 <h1>Tentang Kami</h1>
 <div id="about-container">
-<img src="https://i.ibb.co/r6PZdc7/image1.jpg">
+<img src="./images/image1.jpg" alt="profil-img">
 <p>
   <b>EcoAware</b> merupakan platform digital yang akan menyediakan informasi tentang berbagai aspek isu lingkungan seperti sumber daya alam, ekosistem, dan perubahan iklim. Ini akan memberikan data dan informasi yang diperlukan untuk mengambil tindakan yang tepat untuk menjaga keberlanjutan dan melindungi lingkungan.
   
@@ -132,6 +147,7 @@ const ourStoryTemplate = () => `
 `;
 
 export {
+  WelcomeTemplate,
   FormLoginTemplate,
   FormRegisterTemplate,
   ourStoryTemplate,

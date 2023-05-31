@@ -3,7 +3,7 @@ import { FormRegisterTemplate } from '../templates/template-ecoaware';
 const Register = {
   async render() {
     const html = `
-      <main id="register">
+      <main>
       <div class="container h-50" id="form-register">
     </div>
     </main>

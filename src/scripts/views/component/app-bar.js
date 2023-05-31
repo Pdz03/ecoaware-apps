@@ -28,7 +28,7 @@ class AppBar extends HTMLElement {
           >
         </li>
         <li class="navitemsmob">
-        <a href="/login" target="_blank">Login</a>
+        <a href="/welcome" target="_blank">Login</a>
       </li>
       </ul>
     </nav>
@@ -49,7 +49,7 @@ class AppBar extends HTMLElement {
           >About Us</a
         >
       </li>
-      <li class="navitems"><a href="#/login">Login</a></li>
+      <li class="navitems"><a href="#/welcome">Login</a></li>
     </ul>
   </nav>
    `;
