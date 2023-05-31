@@ -8,7 +8,7 @@ class AppBar extends HTMLElement {
     <div class="appmob">
     <div class="title-bar">
     <a class="logo" href="">
-      <img src="https://i.ibb.co/vjncHxM/Logo.png" alt="Logo" />
+      <img src="./icons/Logo.png" alt="Logo" />
     </a>
       <h2 class="title">EcoAware Apps</h2>
     </div>
@@ -35,7 +35,7 @@ class AppBar extends HTMLElement {
     <nav class="nav">
     <div class="title-bar">
     <a class="logo" href="">
-      <img src="https://i.ibb.co/vjncHxM/Logo.png" alt="Logo" />
+      <img src="./icons/Logo.png" alt="Logo" />
     </a>
       <h2 class="title">EcoAware Apps</h2>
     </div>

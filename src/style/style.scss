@@ -40,6 +40,8 @@ body{
                     .title{
                        display:flex;
                        padding:10px;
+                       font-family: 'Roboto', sans-serif;
+                       color:#8BB68A;
                     }
                 }
                 .menumob {
@@ -72,9 +74,10 @@ body{
                     width: 40%;
                     right:0;
                     position:fixed;
+                    box-shadow: 0 8px 8px 0 rgba(68, 71, 54, 0.2);
                     -webkit-transform: translate(200%, 0);
                     transform: translate(200%, 0);
-                    transition: transform 0.3s ease
+                    transition: transform 0.3s ease;
                 }
                 .navlistmob {
                     padding: 0;
@@ -106,7 +109,8 @@ body{
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                background-color: #f2f2f2;
+                background-color: white;
+                box-shadow: 0 8px 8px 0 rgba(68, 71, 54, 0.2);
                 padding: 10px;
                 .title-bar{
                     display:flex;
@@ -124,6 +128,8 @@ body{
                     .title{
                         display:flex;
                         padding:5px;
+                        font-family: 'Roboto', sans-serif;
+                        color:#8BB68A;
                     }
                 }
                 .navlist {
@@ -142,6 +148,7 @@ body{
         }
     }
     #mainContent{
+        min-height: 500px;
         hero-element{
             .hero{
                 display: flex;
@@ -218,11 +225,14 @@ body{
                         .btn{
                             background-color: #8BB68A;
                             border-radius: 10px;
-                            width:80px;
+                            width:100px;
                             color:white;
-                            font-size: 15px;
+                            font-size: 20px;
                             font-weight: 500;
                             padding: 5px 10px 5px 10px;
+                        }
+                        .btn:hover{
+                            background-color: #718870;
                         }
                     }
                 }
