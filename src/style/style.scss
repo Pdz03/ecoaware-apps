@@ -44,7 +44,7 @@ body{
                         display:flex;
                         padding:5px;
                         font-family: 'Roboto', sans-serif;
-                        color:#8BB68A;
+                        color:#728F71;
                     }
                 }
                 .menumob {
@@ -137,7 +137,7 @@ body{
                         display:flex;
                         padding:5px;
                         font-family: 'Roboto', sans-serif;
-                        color:#8BB68A;
+                        color:#728F71;
                     }
                 }
                 .navlist {
@@ -174,7 +174,7 @@ body{
                     rgba(2, 2, 9, 0.7),
                     rgba(2, 2, 9, 0.7)
                 ),
-                url('../public/images/hero-image.jpeg');
+                url('../public/images/image2.jpg');
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -194,8 +194,65 @@ body{
             justify-content: space-between;
             main{
                 display:flex;
-                width:70%;
-                background-color: aquamarine;
+                width:100%;
+                background-color: #fff;
+                min-height:500px;
+                .content{
+                    width:100%;
+                    h1{
+                    text-align: center;
+                    text-transform: uppercase;
+                    }
+                    .list{
+                        display: grid;
+                        justify-content: center;
+                        align-content: center;
+                        #news-list{
+                            width:800px;
+                            display: grid;
+                            justify-content: center;
+                            align-content: center;
+                          
+                            gap: 10px;
+                            grid-auto-flow: row;
+                            .news-item{
+                                border-radius: 10px;
+                                padding:10px;
+                                border: 1px black solid;
+                                display: grid;
+                                justify-content: center;
+                                align-content: center;
+                              
+                                gap: 10px;
+                                grid-auto-flow: column;
+                                img{
+                                    margin-top:10px;
+                                    width:200px;
+                                    height:120px;
+                                    object-fit: cover;
+                                }
+                                .news-content{
+                                    .title{
+                                        h3{
+                                            font-size:30px;
+                                            margin-bottom: 0;
+                                        }
+                                        p{
+                                            font-size:12px;
+                                            margin-bottom: 2px;
+                                        }
+                                    }
+                                    .content{
+                                        p{
+                                            font-size:15px;
+                                            margin-bottom: 2px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
             aside{
                 display: flex;
@@ -500,7 +557,6 @@ body{
                     display: grid;
                     justify-content: center;
                     align-content: center;
-
                     gap: 10px;
                     grid-auto-flow: column;
                     }
