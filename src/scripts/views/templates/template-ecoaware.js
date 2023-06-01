@@ -19,14 +19,14 @@ const FormLoginTemplate = () => `
 </div>
 <div class="login-text">
 <h2>Masuk</h2>
-<form action="#/login" method="POST">
+<form action="#/login/auth" method="POST">
           <div class="form-group">
-            <input type="email" name="email" class="form-control" placeholder="Email" required/>
+            <input type="email" id="email" "name="email" class="form-control" placeholder="Email" required/>
           </div>
           <div class="form-group">
-            <input type="password" name="pass" class="form-control" placeholder="Password" required/>
+            <input type="password" id="pass" name="pass" class="form-control" placeholder="Password" required/>
           </div>
-<button type="submit" class="btn">Masuk</button>
+<button type="submit" id="login-btn" class="btn">Masuk</button>
 <p>Belum punya akun? <a href="#/register">Daftar</a></p>
 </form>
 </div>
@@ -38,17 +38,17 @@ const FormRegisterTemplate = () => `
 </div>
 <div class="register-text">
 <h2>Daftar</h2>
-<form action="#/login" method="POST">
+<form action="localhost:8080/user/add" method="POST">
 <div class="form-group">
-            <input type="text" name="username" class="form-control" placeholder="Username" required/>
+            <input type="text" id="nama" name="username" class="form-control" placeholder="Username" required/>
           </div>
           <div class="form-group">
-            <input type="email" name="email" class="form-control" placeholder="Email" required/>
+            <input type="email" id="email" name="email" class="form-control" placeholder="Email" required/>
           </div>
           <div class="form-group">
-            <input type="password" name="pass" class="form-control" placeholder="Password" required/>
+            <input type="password" id="pass" name="pass" class="form-control" placeholder="Password" required/>
           </div>
-<button type="submit" class="btn">Daftar</button>
+<button type="submit" id="register-btn" class="btn">Daftar</button>
 <p>Sudah punya akun? <a href="#/login">Masuk</a></p>
 </form>
 </div>

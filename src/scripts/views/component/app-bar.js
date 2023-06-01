@@ -28,7 +28,7 @@ class AppBar extends HTMLElement {
       >
     </li>
     <li class="navitemsmob">
-    <a href="/login" target="_blank"><img src="./icons/icon-profil.png"></a>
+    <a href="#/welcome" target="_blank"><img src="./icons/icon-profil.png"></a>
   </li>
   </ul>
     </nav>
@@ -49,7 +49,7 @@ class AppBar extends HTMLElement {
           >Kontak</a
         >
       </li>
-      <li class="navitems"><a href="#/login"><img src="./icons/icon-profil.png"></a></li>
+      <li class="navitems"><a href="#/welcome"><img src="./icons/icon-profil.png"></a></li>
     </ul>
   </nav>
    `;
