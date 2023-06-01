@@ -8,7 +8,7 @@ class AppBar extends HTMLElement {
     <div class="appmob">
     <div class="title-bar">
     <a class="logo" href="">
-      <img src="https://i.ibb.co/vjncHxM/Logo.png" alt="Logo" />
+      <img src="./icons/Logo.png" alt="Logo" />
     </a>
       <h2 class="title">EcoAware Apps</h2>
     </div>
@@ -17,39 +17,39 @@ class AppBar extends HTMLElement {
     </div>
     </div>
     <nav id="drawer" class="navmob">
-      <ul class="navlistmob">
-        <li class="navitemsmob"><a href="#/home">Home</a></li>
-        <li class="navitemsmob">
-          <a href="#/ourstory">Our story</a>
-        </li>
-        <li class="navitemsmob">
-          <a href="https://github.com/Pdz03/ecoaware-apps" target="_blank"
-            >About Us</a
-          >
-        </li>
-        <li class="navitemsmob">
-        <a href="/login" target="_blank">Login</a>
-      </li>
-      </ul>
+    <ul class="navlistmob">
+    <li class="navitemsmob"><a href="#/home">Beranda</a></li>
+    <li class="navitemsmob">
+      <a href="#/ourstory">Tentang</a>
+    </li>
+    <li class="navitemsmob">
+      <a href="https://github.com/Pdz03/ecoaware-apps" target="_blank"
+        >Kontak</a
+      >
+    </li>
+    <li class="navitemsmob">
+    <a href="#/welcome" target="_blank"><img src="./icons/icon-profil.png"></a>
+  </li>
+  </ul>
     </nav>
     <nav class="nav">
     <div class="title-bar">
     <a class="logo" href="">
-      <img src="https://i.ibb.co/vjncHxM/Logo.png" alt="Logo" />
+      <img src="./icons/Logo.png" alt="Logo" />
     </a>
       <h2 class="title">EcoAware Apps</h2>
     </div>
     <ul class="navlist">
-      <li class="navitems"><a href="#/home">Home</a></li>
+      <li class="navitems"><a href="#/home">Beranda</a></li>
       <li class="navitems">
-        <a href="#/ourstory">Our story</a>
+        <a href="#/ourstory">Tentang</a>
       </li>
       <li class="navitems">
         <a href="https://github.com/Pdz03/ecoaware-apps" target="_blank"
-          >About Us</a
+          >Kontak</a
         >
       </li>
-      <li class="navitems"><a href="#/login">Login</a></li>
+      <li class="navitems"><a href="#/welcome"><img src="./icons/icon-profil.png"></a></li>
     </ul>
   </nav>
    `;
