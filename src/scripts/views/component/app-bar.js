@@ -23,8 +23,7 @@ class AppBar extends HTMLElement {
       <a href="#/ourstory">Tentang</a>
     </li>
     <li class="navitemsmob">
-      <a href="https://github.com/Pdz03/ecoaware-apps" target="_blank"
-        >Kontak</a
+      <a href="#/kontak">Kontak</a
       >
     </li>
     <li class="navitemsmob">
@@ -45,8 +44,7 @@ class AppBar extends HTMLElement {
         <a href="#/ourstory">Tentang</a>
       </li>
       <li class="navitems">
-        <a href="https://github.com/Pdz03/ecoaware-apps" target="_blank"
-          >Kontak</a
+        <a href="#/kontak">Kontak</a
         >
       </li>
       <li class="navitems"><a href="#/welcome"><img src="./icons/icon-profil.png"></a></li>
