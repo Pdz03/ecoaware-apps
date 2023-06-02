@@ -4,23 +4,16 @@ import { getNews } from '../../Data/news';
 const Home = {
   async render() {
     const html = `
-      <hero-element></hero-element>
-      <div id="main">
+      <hero-element></hero-element>>
         <main id="content">
           <section class="content">
             <div class="title">
               <h1>Isu Terkini Terkait Perubahan Iklim</h1>
             </div>
             <hr>
-            <div class="list" id="resto">
               <div id="news-list"></div> 
-            </div>
           </section>
         </main>
-        <aside hidden>
-          <section>samping</section>
-        </aside>
-      </div>
     `;
     return html;
   },
@@ -34,18 +27,18 @@ const Home = {
     newsData.forEach((beritaItem) => {
       const listItemHtml = `
       <div class="news-item">
-      <img src="${beritaItem.gambar}" alt="${beritaItem.judul}" />
-      <div class="news-content">
+        <div class="image-news">
+          <img src="${beritaItem.gambar}" alt="${beritaItem.judul}" />
+        </div>
         <div class="title">
-        <h3>${beritaItem.judul}</h3>
-        <p>Tanggal: ${beritaItem.tanggal}</p>
+          <h3>${beritaItem.judul}</h3>
+          <p>${beritaItem.tanggal}</p>
         </div>
         <div class="content">
-        <p>${beritaItem.isi.slice(0, 200)}...</p>
-        <a href="#/detail/${beritaItem.id}">Lihat Selengkapnya</a>
+          <p>${beritaItem.isi}...</p>
+          <a href="#/detail/${beritaItem.id}">Lihat Selengkapnya</a>
         </div>
       </div>
-    </div>
       `;
       newsListElement.innerHTML += listItemHtml;
     });

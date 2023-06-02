@@ -1,5 +1,6 @@
 @import 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap';
 @import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap';
+@import 'https://fonts.googleapis.com/earlyaccess/jejugothic.css';
 
 * {
     padding: 0;
@@ -164,102 +165,147 @@ body{
         margin-bottom:90px;
         hero-element{
             .hero{
-                display: flex;
-                align-items: center;
+                @media screen and (max-width: 679px) {
+                    min-height: 250px;
+                }
                 min-height: 350px;
                 width: 100%;
-                text-align: center;
                 background-color: Black !important;
                 background-image: linear-gradient(
-                    rgba(2, 2, 9, 0.7),
-                    rgba(2, 2, 9, 0.7)
+                    rgba(2, 2, 9, 0.5),
+                    rgba(2, 2, 9, 0.5)
                 ),
                 url('../public/images/image2.jpg');
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
                 .inner-hero {
-                    margin: 0 auto;
-                    max-width: 800px;
+                    @media screen and (max-width: 679px) {
+                        padding:20px 0 0 10px;
+                        max-width: 300px;
+                    }
+                    max-width: 600px;
+                    padding:40px 0 0 20px;
                     .judul-hero {
+                        @media screen and (max-width: 679px) {
+                        font-size: 20px;
+                        }
+                        text-align: left;
                         color: #fff;
                         font-weight: 400;
                         font-size: 32px;
+                        font-family: 'inter', sans-serif;
                     }
                 }
-            }
-        }
-        #main-container{
-            display:flex;
-            justify-content: space-between;
-            main{
-                display:flex;
-                width:100%;
-                background-color: #fff;
-                min-height:500px;
-                .content{
-                    width:100%;
-                    h1{
-                    text-align: center;
-                    text-transform: uppercase;
-                    }
-                    .list{
-                        display: grid;
-                        justify-content: center;
-                        align-content: center;
-                        #news-list{
-                            width:800px;
-                            display: grid;
-                            justify-content: center;
-                            align-content: center;
-                          
-                            gap: 10px;
-                            grid-auto-flow: row;
-                            .news-item{
-                                border-radius: 10px;
-                                padding:10px;
-                                border: 1px black solid;
-                                display: grid;
-                                justify-content: center;
-                                align-content: center;
-                              
-                                gap: 10px;
-                                grid-auto-flow: column;
-                                img{
-                                    margin-top:10px;
-                                    width:200px;
-                                    height:120px;
-                                    object-fit: cover;
-                                }
-                                .news-content{
-                                    .title{
-                                        h3{
-                                            font-size:30px;
-                                            margin-bottom: 0;
-                                        }
-                                        p{
-                                            font-size:12px;
-                                            margin-bottom: 2px;
-                                        }
-                                    }
-                                    .content{
-                                        p{
-                                            font-size:15px;
-                                            margin-bottom: 2px;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            aside{
-                display: flex;
             }
         }
         main{
             padding: 40px 80px 40px 80px;
+            .content{
+                width:100%;
+                display: grid;
+                justify-content: center;
+                align-content: center;
+                h1{
+                    @media screen and (max-width: 679px) {
+                    font-size:20px;
+                    }
+                    text-align: center;
+                    text-transform: uppercase;
+                    font-family: 'Jeju Gothic', sans-serif;
+                }
+                hr{
+                    margin-bottom: 20px;
+                }
+                #news-list{
+                    width:100%;
+                    display: grid;
+                    justify-content: center;
+                    align-content: center;
+                  
+                    gap: 10px;
+                    grid-auto-flow: row;
+                    .news-item{
+                        @media screen and (max-width: 679px) {
+                            width:360px;
+                            gap: 6px;
+                        }
+                        border-radius: 10px;
+                        padding:10px;
+                        width:830px;
+                        border: 1px black solid;
+                        display: grid;
+                        justify-content: center;
+                        align-content: center;
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 10px;
+                        .image-news{
+                            @media screen and (max-width: 679px) {
+                                grid-column-start: 1;
+                                grid-row-start: 1;
+                                width:120px;
+                            }
+                            display: grid;
+                            grid-column-start: 1;
+                            grid-row-start: 1;
+                            grid-row-end: 3;
+                            width:200px;
+                            img{
+                                @media screen and (max-width: 679px) {
+                                    width:120px;
+                                    height:80px;
+                                }
+                                width:200px;
+                                height:120px;
+                                margin-top: 5px;
+                                object-fit: cover;
+                            }
+                        }
+                        .title{
+                            @media screen and (max-width: 679px) {
+                                width:200px;
+                            }
+                            display: grid;
+                            grid-column-start: 2;
+                            width:600px;
+                            h3{
+                                @media screen and (max-width: 679px) {
+                                    font-size:20px;
+                                }
+                                font-size:30px;
+                                margin-bottom: 0;
+                                font-family: 'Inter', sans-serif;
+                            }
+                            p{
+                                font-size:12px;
+                                margin-bottom: 2px;
+                                font-family: 'Inter', sans-serif;
+                            }
+                        }
+                        .content{
+                            @media screen and (max-width: 679px) {
+                                grid-column-start: 1;
+                                grid-column-end: 3;
+                                grid-row-start: 3;
+                            }
+                            grid-column-start: 2;
+                            grid-row-start: 2;
+                            p{
+                                @media screen and (max-width: 679px) {
+                                    max-height:55px;
+                                    overflow: hidden;
+                                }
+                                max-height:75px;
+                                overflow: hidden;
+                                font-size:15px;
+                                margin-bottom: 5px;
+                                font-family: 'Inter', sans-serif;
+                            }
+                        }
+                    }
+                }
+                    
+            }
             #form-login{
                 @media screen and (max-width: 1000px) {
                     grid-auto-flow: row;
