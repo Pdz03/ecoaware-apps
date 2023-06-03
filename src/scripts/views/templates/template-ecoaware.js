@@ -112,43 +112,38 @@ const ourStoryTemplate = () => `
 </div>
 `;
 
-const pesanTemplate = () => `
-<h3>Kirim Pesan Kepada Kami</h3>
-<form id="messageForm">
-    <input type="text" id="name" required placeholder="Nama"><br><br>
-    <input type="email" id="email" required placeholder="Email"><br><br>
-    <textarea id="message" required placeholder="Tulis Pesan"></textarea><br><br>
-    <input type="button" value="Kirim" onclick="sendEmail()"><br><br>
+const contactTemplate = () => `
+<div class="tambahan" id ="body-tambahan">
+  <img src="images/pana.jpg" alt="pana" />
+  <h3>Merasa ingin menghubungi kami?<br>
+  Kirimkan pertanyaan Anda di sini dan kami<br>
+  akan menghubungi Anda sesegera mungkin!</h3>
+</div>
+
+<div class="chat" id="body-pesan">
+  <h3>Kirim Pesan Kepada Kami</h3>
+  <form id="messageForm">
+    <input type="text" id="name" required placeholder="Nama">
+    <input type="email" id="email" required placeholder="Email">
+    <textarea id="message" required placeholder="Tulis Pesan"></textarea>
+    <div class="form-group">
+    <button type="submit" onclick="sendEmail()">Kirim</button>
+    </div>
   </form>
-`;
-
-const followTemplate = () => `
-<div class="sup">
-<p>Support  @ecoaware.id</p>
-<p>Follow Us</p>
-</div>
-<div class="sos">
-<img src="images/instagram.png" alt="instagram" />
-<img src="images/gmail.png" alt="gmail" />
-<img src="images/facebook.png" alt="facebook" />
-<img src="images/linkdn.png" alt="linkdn" />
 </div>
 
-`;
-
-const tambahanTemplate = () => `
-<div class="">
-<img src="images/pana.jpg" alt="pana" />
+<div class="follow" id="body-follow">
+  <div class="sup">
+    <p><b>Support  @ecoaware.id</b></p>
+    <p>Follow Us</p>
+  </div>
+  <div class="sos">
+    <img src="images/instagram.png" alt="instagram" />
+    <img src="images/gmail.png" alt="gmail" />
+    <img src="images/facebook.png" alt="facebook" />
+    <img src="images/linkedin.png" alt="linkdn" />
+  </div>
 </div>
-<div class="">
-<h3>Merasa ingin menghubungi kami?<br>
-Kirimkan pertanyaan Anda di sini dan kami<br> 
-akan menghubungi Anda sesegera mungkin!</h3>
-</div>
-`;
-
-const gambawahTemplate = () => `
-<img src="images/jawa-tengah.png" alt="jawa-tengah" />
 `;
 
 export {
@@ -156,8 +151,5 @@ export {
   FormLoginTemplate,
   FormRegisterTemplate,
   ourStoryTemplate,
-  pesanTemplate,
-  followTemplate,
-  tambahanTemplate,
-  gambawahTemplate,
+  contactTemplate,
 };
