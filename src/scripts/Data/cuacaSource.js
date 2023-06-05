@@ -6,7 +6,13 @@ const axios = require('axios');
 class PemadamSource {
   static async cuacaTerkini() {
     const response = await axios.get(API_ENDPOINT.cuaca);
-    const responseJson = await response.json();
+    const responseJson = await response.data;
+    return responseJson;
+  }
+
+  static async ambilProvinsi() {
+    const response = await axios.get(API_ENDPOINT.provinsi);
+    const responseJson = await response.data;
     return responseJson;
   }
 
