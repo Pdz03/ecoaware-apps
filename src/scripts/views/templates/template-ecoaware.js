@@ -151,6 +151,56 @@ const gambawahTemplate = () => `
 <img src="images/jawa-tengah.png" alt="jawa-tengah" />
 `;
 
+const newsdetailTemplate = (berita) => `
+<div class="image-news">
+    <img src="${berita.gambar}" alt="${berita.judul}" />
+  </div>
+  <div class="title">
+    <h3>${berita.judul}</h3>
+    <p>${berita.tanggal}</p>
+  </div>
+  <div class="content">
+    <p>${berita.isi}</p>
+  </div>
+`;
+const slideTemplate = () => `
+<div class="slider" id="app">
+  <transition name="slide" mode="out-in">
+    <img :key="gambarIndex" :src="gambarSekarang" alt="Gambar Slider">
+  </transition>
+  <div class="arrow arrow-left" @click="gantiGambar(-1)">&lt;</div>
+  <div class="arrow arrow-right" @click="gantiGambar(1)">&gt;</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      gambarIndex: 0,
+      gambarCount: 2,
+      gambarList: ['../../../public/images/image1.jpg', '../../../public/images/image3.jpg']
+    },
+    computed: {
+      gambarSekarang: function() {
+        return this.gambarList[this.gambarIndex];
+      }
+    },
+    methods: {
+      gantiGambar: function(n) {
+        this.gambarIndex += n;
+        if (this.gambarIndex < 0) {
+          this.gambarIndex = this.gambarCount - 1;
+        }
+        if (this.gambarIndex >= this.gambarCount) {
+          this.gambarIndex = 0;
+        }
+      }
+    }
+  });
+</script>
+`;
+
 export {
   WelcomeTemplate,
   FormLoginTemplate,
@@ -160,4 +210,6 @@ export {
   followTemplate,
   tambahanTemplate,
   gambawahTemplate,
+  newsdetailTemplate,
+  slideTemplate,
 };

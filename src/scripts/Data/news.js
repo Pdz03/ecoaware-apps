@@ -25,6 +25,10 @@ function getNews() {
   return news;
 }
 
+function getNewsByTitle(judul) {
+  return news.find((berita) => berita.judul === judul);
+}
+
 function addNews(judul, tanggal, isi, gambar) {
   const newNews = {
     judul,
@@ -35,4 +39,4 @@ function addNews(judul, tanggal, isi, gambar) {
   news.push(newNews);
 }
 
-export { getNews, addNews };
+export { getNews, getNewsByTitle, addNews };
