@@ -1,6 +1,9 @@
+/* eslint-disable import/no-extraneous-dependencies */
+import 'slick-carousel';
+import $ from 'jquery';
 import '../component/hero-element';
 import { getNews } from '../../Data/news';
-import { slideTemplate } from '../templates/template-ecoaware';
+import { sliderTemplate } from '../templates/template-ecoaware';
 import '../../../style/style.css';
 
 const Home = {
@@ -27,7 +30,15 @@ const Home = {
     const newsListElement2 = document.getElementById('news-list2');
     const slideItemElement = document.getElementById('slide-item');
 
-    slideItemElement.innerHTML = slideTemplate;
+    slideItemElement.innerHTML = sliderTemplate();
+
+    // Use $ as usual here, e.g.:
+    $('.slider').slick({
+      autoplay: true,
+      autoplaySpeed: 2500,
+      dots: true,
+      fade: true,
+    });
 
     // Ambil semua data berita
     const newsData = getNews();
@@ -51,7 +62,7 @@ const Home = {
           </div>
           <div class="content">
             <p>${beritaItem.isi}...</p>
-            <a href="#/detail/${encodeURIComponent(beritaItem.judul)}">Lihat Selengkapnya</a>
+            <a href="#/detail/${beritaItem.id}">Lihat Selengkapnya</a>
           </div>
         </div>
       `;
@@ -71,7 +82,7 @@ const Home = {
           </div>
           <div class="content">
             <p>${beritaItem.isi}...</p>
-            <a href="#/detail/${encodeURIComponent(beritaItem.judul)}">Lihat Selengkapnya</a>
+            <a href="#/detail/${beritaItem.id}">Lihat Selengkapnya</a>
           </div>
         </div>
       `;

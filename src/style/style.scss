@@ -217,7 +217,7 @@ body{
                 hr{
                     margin-bottom: 20px;
                 }
-                #news-list{
+                #news-list, #news-list2{
                     width:100%;
                     display: grid;
                     justify-content: center;
@@ -304,7 +304,53 @@ body{
                         }
                     }
                 }
-                    
+                #slide-item{                  
+                    .container {
+                        display: grid;
+                        justify-content: center;
+                        align-content: center;
+                        max-width:850px;
+                        padding: 15px;
+                        .slider{
+                            width:100%;
+                            border-radius: 10px;
+                            border:1px solid black;
+                            .slick-list{
+                                .slick-track{
+                                    .slick-slide{
+                                        img{
+                                            width:100%;
+                                            object-fit: cover;
+                                        }
+                                    }
+                                }
+                            }
+                            .slick-prev, .slick-next {
+                                width: 50px;
+                                height: 50px;
+                                z-index: 1;
+                            }
+                            .slick-prev {
+                                left: 5px;
+                            }
+                            .slick-next {
+                                right: 5px;
+                            }
+                            .slick-dots{
+                                bottom: 15px;
+                            }
+                            .slick-dots li button:before {
+                                font-size: 12px;
+                                color: #fff;
+                                text-shadow: 0 0 10px rgba(0,0,0,0.5);
+                                opacity: 1;
+                            }
+                            .slick-dots li.slick-active button:before {
+                                color: #dedede;
+                            }
+                        }
+                    }
+                }
             }
             #form-login{
                 @media screen and (max-width: 1000px) {

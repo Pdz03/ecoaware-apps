@@ -1,4 +1,5 @@
 import { getNewsByTitle } from '../../Data/news';
+import UrlParser from '../../routes/url-parser';
 import { newsdetailTemplate } from '../templates/template-ecoaware';
 
 const detail = {
@@ -10,10 +11,9 @@ const detail = {
   },
 
   async afterRender() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const judul = urlParams.get('judul');
-    const berita = getNewsByTitle(judul);
-  
+    const url = UrlParser.parseActiveUrlWithoutCombiner();
+    const berita = getNewsByTitle(url.id);
+
     const newsDetailElement = document.getElementById('news-detail');
     newsDetailElement.innerHTML = newsdetailTemplate(berita);
   },

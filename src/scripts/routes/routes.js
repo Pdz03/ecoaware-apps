@@ -15,8 +15,8 @@ const routes = {
   '/register': Register,
   '/dashboard': Dashboard,
   '/ourstory': ourstory,
-  '/kontak' : kontak,
-  '/detail/:judul': detail,
+  '/kontak': kontak,
+  '/detail/:id': detail,
 };
 
 export default routes;
