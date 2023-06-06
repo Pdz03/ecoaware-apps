@@ -1,8 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
+import 'slick-carousel';
+import $ from 'jquery';
 import '../component/hero-element';
 import { getNews } from '../../Data/news';
-import { slideTemplate } from '../templates/template-ecoaware';
+import { sliderTemplate } from '../templates/template-ecoaware';
 import '../../../style/style.css';
-import '../pages/detail';
+
 const Home = {
   async render() {
     const html = `
@@ -27,17 +30,25 @@ const Home = {
     const newsListElement2 = document.getElementById('news-list2');
     const slideItemElement = document.getElementById('slide-item');
 
-    slideItemElement.innerHTML = slideTemplate;
+    slideItemElement.innerHTML = sliderTemplate();
+
+    // Use $ as usual here, e.g.:
+    $('.slider').slick({
+      autoplay: true,
+      autoplaySpeed: 2500,
+      dots: true,
+      fade: true,
+    });
 
     // Ambil semua data berita
     const newsData = getNews();
-    console.log('Data Berita:', newsData);
+
     // Ambil 2 berita pertama untuk news-list
     const newsDataList1 = newsData.slice(0, 2);
-    console.log('Data Berita List 1:', newsDataList1);
+
     // Ambil 2 berita berikutnya untuk news-list2
     const newsDataList2 = newsData.slice(2, 4);
-    console.log('Data Berita List 2:', newsDataList2);
+
     // Membuat elemen daftar untuk setiap objek berita dalam data newsDataList1
     newsDataList1.forEach((beritaItem) => {
       const listItemHtml = `
@@ -51,7 +62,7 @@ const Home = {
           </div>
           <div class="content">
             <p>${beritaItem.isi}...</p>
-            <a href="#/detail/${encodeURIComponent(beritaItem.judul)}">Lihat Selengkapnya</a>
+            <a href="#/detail/${beritaItem.id}">Lihat Selengkapnya</a>
           </div>
         </div>
       `;
@@ -71,7 +82,7 @@ const Home = {
           </div>
           <div class="content">
             <p>${beritaItem.isi}...</p>
-            <a href="#/detail/${encodeURIComponent(beritaItem.judul)}">Lihat Selengkapnya</a>
+            <a href="#/detail/${beritaItem.id}">Lihat Selengkapnya</a>
           </div>
         </div>
       `;

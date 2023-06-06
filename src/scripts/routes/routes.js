@@ -5,7 +5,7 @@ import Register from '../views/pages/register';
 import Dashboard from '../views/pages/dashboard';
 import ourstory from '../views/pages/tentang-kami';
 import kontak from '../views/pages/kontak';
-import Detail from '../views/pages/detail';
+import detail from '../views/pages/detail';
 
 const routes = {
   '/': Home, // default page
@@ -15,8 +15,8 @@ const routes = {
   '/register': Register,
   '/dashboard': Dashboard,
   '/ourstory': ourstory,
-  '/kontak' : kontak,
-  '/detail/:judul': Detail,
+  '/kontak': kontak,
+  '/detail/:id': detail,
 };
 
 export default routes;

@@ -1,6 +1,6 @@
 const news = [
   {
-    id: 1,
+    id: '1102230601',
     judul: 'Pemanasan global',
     tanggal: '31/05/2023',
     isi:
@@ -8,7 +8,7 @@ const news = [
     gambar: 'images/news/pemanasan.jpg',
   },
   {
-    id: 2,
+    id: '1102230602',
     judul: 'Gempa bumi',
     tanggal: '31/05/2023',
     isi:
@@ -16,7 +16,7 @@ const news = [
     gambar: 'images/news/gempa.jpeg',
   },
   {
-    id: 3,
+    id: '1102230603',
     judul: 'Tsunami',
     tanggal: '31/05/2023',
     isi: 'Tsunami adalah gelombang laut yang terbentuk akibat guncangan atau pergeseran yang kuat di dasar laut.',
@@ -28,8 +28,8 @@ function getNews() {
   return news;
 }
 
-function getNewsByTitle(judul) {
-  return news.find((berita) => berita.judul.toLowerCase() === judul.toLowerCase());
+function getNewsByTitle(id) {
+  return news.find((berita) => berita.id === id);
 }
 
 function addNews(judul, tanggal, isi, gambar) {
