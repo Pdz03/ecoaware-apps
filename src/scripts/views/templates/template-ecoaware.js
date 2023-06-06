@@ -166,7 +166,7 @@ const newsdetailTemplate = (berita) => `
 const slideTemplate = () => `
 <div class="slider" id="app">
   <transition name="slide" mode="out-in">
-    <img :key="gambarIndex" :src="gambarSekarang" alt="Gambar Slider">
+    <img :key="gambarIndex" :src="gambarSekarang()" alt="Gambar Slider">
   </transition>
   <div class="arrow arrow-left" @click="gantiGambar(-1)">&lt;</div>
   <div class="arrow arrow-right" @click="gantiGambar(1)">&gt;</div>
@@ -179,7 +179,7 @@ const slideTemplate = () => `
     data: {
       gambarIndex: 0,
       gambarCount: 2,
-      gambarList: ['../../../public/images/image1.jpg', '../../../public/images/image3.jpg']
+      gambarList: ['public/images/image1.jpg', 'public/images/image3.jpg']
     },
     computed: {
       gambarSekarang: function() {

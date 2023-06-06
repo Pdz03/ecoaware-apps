@@ -1,7 +1,8 @@
 import { getNewsByTitle } from '../../Data/news';
-import { newsdetailTemplate } from '../templates/template-ecoaware';
+import '../../../style/style.css';
+import '../pages/home';
 
-const detail = {
+const Detail = {
   async render() {
     return `
       <hr>
@@ -10,13 +11,39 @@ const detail = {
   },
 
   async afterRender() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const judul = urlParams.get('judul');
+    const params = this.getParams();
+    const judul = params.judul;
+
+    console.log('Params:', params);
+    console.log('Judul:', judul);
+
     const berita = getNewsByTitle(judul);
-  
+    console.log('Berita:', berita);
+
     const newsDetailElement = document.getElementById('news-detail');
-    newsDetailElement.innerHTML = newsdetailTemplate(berita);
+    console.log('newsDetailElement:', newsDetailElement);
+
+    newsDetailElement.innerHTML = `
+      <div class="image-news">
+        <img src="${berita.gambar}" alt="${berita.judul}" />
+      </div>
+      <div class="title">
+        <h3>${berita.judul}</h3>
+        <p>${berita.tanggal}</p>
+      </div>
+      <div class="content">
+        <p>${berita.isi}</p>
+      </div>
+    `;
+  },
+
+  getParams() {
+    const hash = window.location.hash.substr(1);
+    const params = hash.split('/');
+    return {
+      judul: params[1],
+    };
   },
 };
 
-export default detail;
+export default Detail;

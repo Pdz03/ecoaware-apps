@@ -2,7 +2,7 @@ import '../component/hero-element';
 import { getNews } from '../../Data/news';
 import { slideTemplate } from '../templates/template-ecoaware';
 import '../../../style/style.css';
-
+import '../pages/detail';
 const Home = {
   async render() {
     const html = `
@@ -31,13 +31,13 @@ const Home = {
 
     // Ambil semua data berita
     const newsData = getNews();
-
+    console.log('Data Berita:', newsData);
     // Ambil 2 berita pertama untuk news-list
     const newsDataList1 = newsData.slice(0, 2);
-
+    console.log('Data Berita List 1:', newsDataList1);
     // Ambil 2 berita berikutnya untuk news-list2
     const newsDataList2 = newsData.slice(2, 4);
-
+    console.log('Data Berita List 2:', newsDataList2);
     // Membuat elemen daftar untuk setiap objek berita dalam data newsDataList1
     newsDataList1.forEach((beritaItem) => {
       const listItemHtml = `
