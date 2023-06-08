@@ -1,6 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import 'slick-carousel';
-import $ from 'jquery';
+import '@splidejs/splide/dist/css/splide.min.css';
+import 'swiper/swiper-bundle.min.css';
+import Splide from '@splidejs/splide';
 import '../component/hero-element';
 import { getNews } from '../../Data/news';
 import { sliderTemplate } from '../templates/template-ecoaware';
@@ -29,16 +31,14 @@ const Home = {
     const newsListElement1 = document.getElementById('news-list');
     const newsListElement2 = document.getElementById('news-list2');
     const slideItemElement = document.getElementById('slide-item');
-
     slideItemElement.innerHTML = sliderTemplate();
 
-    // Use $ as usual here, e.g.:
-    $('.slider').slick({
+    new Splide('.splide', {
+      perPage: 1,
       autoplay: true,
-      autoplaySpeed: 2500,
-      dots: true,
-      fade: true,
-    });
+      type: 'fade',
+      rewind: true,
+    }).mount();
 
     // Ambil semua data berita
     const newsData = getNews();
