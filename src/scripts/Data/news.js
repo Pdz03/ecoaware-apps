@@ -34,6 +34,7 @@ function getNewsByTitle(id) {
 
 function addNews(judul, tanggal, isi, gambar) {
   const newNews = {
+    id: news.length + 1,
     judul,
     tanggal,
     isi,
