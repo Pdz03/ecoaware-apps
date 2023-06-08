@@ -165,50 +165,20 @@ const newsdetailTemplate = (berita) => `
 `;
 
 const sliderTemplate = () => `
-<div class="container" id="slider-utama">
-<div class="slider">
-<img src="./images/image1.jpg" />
-<img src="./images/image2.jpg" />
-<img src="./images/image3.jpg" />
+<div class="splide">
+<div class="splide__track">
+  <ul class="splide__list">
+    <li class="splide__slide" data-splide-interval="5000"><img src="./images/image1.jpg" /></li>
+    <li class="splide__slide" data-splide-interval="5000"><img src="./images/image2.jpg" /></li>
+    <li class="splide__slide" data-splide-interval="5000"><img src="./images/image3.jpg" /></li>
+    <!-- Tambahkan slide lainnya sesuai kebutuhan -->
+  </ul>
+</div>
+<div class="splide__progress">
+  <div class="splide__progress__bar">
+  </div>
 </div>
 </div>
-`;
-const slideTemplate = () => `
-<div class="slider" id="app">
-  <transition name="slide" mode="out-in">
-    <img :key="gambarIndex" :src="gambarSekarang" alt="Gambar Slider">
-  </transition>
-  <div class="arrow arrow-left" @click="gantiGambar(-1)">&lt;</div>
-  <div class="arrow arrow-right" @click="gantiGambar(1)">&gt;</div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
-<script>
-  var app = new Vue({
-    el: '#app',
-    data: {
-      gambarIndex: 0,
-      gambarCount: 2,
-      gambarList: ['images/image1.jpg', 'images/image3.jpg']
-    },
-    computed: {
-      gambarSekarang: function() {
-        return this.gambarList[this.gambarIndex];
-      }
-    },
-    methods: {
-      gantiGambar: function(n) {
-        this.gambarIndex += n;
-        if (this.gambarIndex < 0) {
-          this.gambarIndex = this.gambarCount - 1;
-        }
-        if (this.gambarIndex >= this.gambarCount) {
-          this.gambarIndex = 0;
-        }
-      }
-    }
-  });
-</script>
 `;
 
 export {
@@ -221,6 +191,5 @@ export {
   tambahanTemplate,
   gambawahTemplate,
   newsdetailTemplate,
-  slideTemplate,
   sliderTemplate,
 };
