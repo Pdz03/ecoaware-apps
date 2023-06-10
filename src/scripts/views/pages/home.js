@@ -1,7 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import 'slick-carousel';
 import '@splidejs/splide/dist/css/splide.min.css';
-import 'swiper/swiper-bundle.min.css';
 import Splide from '@splidejs/splide';
 import '../component/hero-element';
 import { getNews } from '../../Data/news';

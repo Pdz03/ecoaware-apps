@@ -152,16 +152,85 @@ const gambawahTemplate = () => `
 `;
 
 const newsdetailTemplate = (berita) => `
-<div class="image-news">
-    <img src="${berita.gambar}" alt="${berita.judul}" />
-  </div>
-  <div class="title">
-    <h3>${berita.judul}</h3>
+  <div class="detail-title">
+    <h2>${berita.judul}</h2>
     <p>${berita.tanggal}</p>
   </div>
-  <div class="content">
-    <p>${berita.isi}</p>
+  <div class="image-news">
+    <img src="${berita.gambar}" alt="${berita.judul}" />
   </div>
+  <div class="detail-content">
+    <p><b>${berita.tanggal} - </b>${berita.isi}</p>
+  </div>
+  <hr>
+  <div class="coment-container">
+  <h3>Komentar</h3>
+  <form>
+  <div class="form-group">
+  <label for="nama">Nama</label>
+  <input type="text" placeholder="Masukkan nama" required>
+  </div>
+  <div class="form-group">
+  <label for="komentar">Sampaikan komentarmu</label>
+  <textarea placeholder="Tulis komentar" required></textarea>
+  </div>
+  <div class="form-group">
+  <button type="submit">Kirim komentar</button>
+  </div>
+  </form>
+  <hr>
+  <div class="coment_item_container">
+    <div class="coment_item">
+        <img src="https://i.ibb.co/Zh4SvhQ/default.jpg" alt="user photo profile" crossorigin="anonymous">
+      <div class="content">
+      <h3 class="user_name">Eco Ways</h2>
+      <small class="coment_date">09 Juni 2023</small>
+      <p class="coment_content">Semoga bumi kita lekas membaik</p>
+      </div>
+    </div>
+    <div class="reply_item">
+      <img src="https://i.ibb.co/Zh4SvhQ/default.jpg" alt="user photo profile" crossorigin="anonymous">
+      <div class="content">
+      <h3 class="user_name">Tukang bakso</h2>
+      <small class="reply_date">11 Juni 2023</small>
+      <p class="reply_content">Aamiin</p>
+      </div>
+    </div>
+    <div class="rep_coment" id="repcom_container" hidden>
+    <input type="text" placeholder="Nama">
+    <input type="text" placeholder="Balasan komentar">
+    <button type="submit">Balas</button>
+    </div>
+  </div>
+  <div class="coment_item_container">
+  <div class="coment_item">
+      <img src="https://i.ibb.co/Zh4SvhQ/default.jpg" alt="user photo profile" crossorigin="anonymous">
+    <div class="content">
+    <h3 class="user_name">Eko Wes</h2>
+    <small class="coment_date">08 Juni 2023</small>
+    <p class="coment_content">Ayo lindungi bumi kita</p>
+    </div>
+  </div>
+</div>
+<div class="coment_item_container">
+<div class="coment_item">
+  <img src="https://i.ibb.co/Zh4SvhQ/default.jpg" alt="user photo profile" crossorigin="anonymous">
+  <div class="content">
+  <h3 class="user_name">Pahlawan kemaleman</h2>
+  <small class="coment_date">07 Juni 2023</small>
+  <p class="coment_content">Ada yang tau obat untuk mata minus?</p>
+  </div>
+</div>
+<div class="reply_item">
+  <img src="https://i.ibb.co/Zh4SvhQ/default.jpg" alt="user photo profile" crossorigin="anonymous">
+  <div class="content">
+  <h3 class="user_name">EyeAware Solution</h2>
+  <small class="reply_date">12 Juni 2023</small>
+  <p class="reply_content">Ada kak, kakak bisa kunjungi website kami untuk tata cara pembelian obat mata minus dari kami, terimakasih</p>
+  </div>
+</div>
+</div>
+</div>
 `;
 
 const sliderTemplate = () => `

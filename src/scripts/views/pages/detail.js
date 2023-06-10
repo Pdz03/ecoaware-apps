@@ -1,3 +1,4 @@
+import '../component/hero-element';
 import { getNewsByTitle } from '../../Data/news';
 import UrlParser from '../../routes/url-parser';
 import { newsdetailTemplate } from '../templates/template-ecoaware';
@@ -5,8 +6,12 @@ import { newsdetailTemplate } from '../templates/template-ecoaware';
 const detail = {
   async render() {
     return `
-      <hr>
-      <div id="news-detail" class="news-detail"></div>
+    <hero-element></hero-element>
+    <main id="content">
+      <section class="content">
+        <div id="news-detail"></div>
+      </section>
+    </main>
     `;
   },
 

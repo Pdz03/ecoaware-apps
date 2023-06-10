@@ -1,5 +1,7 @@
 import '../component/hero-element';
-import { tambahanTemplate, pesanTemplate, followTemplate, gambawahTemplate } from '../templates/template-ecoaware';
+import {
+  tambahanTemplate, pesanTemplate, followTemplate, gambawahTemplate,
+} from '../templates/template-ecoaware';
 import '../../../style/style.css';
 
 const kontak = {
