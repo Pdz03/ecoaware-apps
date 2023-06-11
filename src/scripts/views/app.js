@@ -29,6 +29,7 @@ class App {
       <p>Informasi gagal ditampilkan</p>
       <div>
       `;
+      console.log(error);
     }
   }
 }

@@ -234,108 +234,112 @@ body{
                 padding: 30px 60px 30px 60px;
                 }
             padding: 40px 80px 40px 80px;
-            .content{
-                width:100%;
-                display: grid;
-                justify-content: center;
-                align-content: center;
-                h1{
-                    @media screen and (max-width: 679px) {
-                    font-size:20px;
-                    }
-                    text-align: center;
-                    text-transform: uppercase;
-                    font-family: 'Jeju Gothic', sans-serif;
-                }
-                hr{
-                    margin-bottom: 20px;
-                }
-                #news-list, #news-list2{
+            .main-container{
+                display:grid;
+                grid-auto-flow:column;
+                .content{
                     width:100%;
                     display: grid;
                     justify-content: center;
                     align-content: center;
-                  
-                    gap: 10px;
-                    grid-auto-flow: row;
-                    .news-item{
+                    h1{
                         @media screen and (max-width: 679px) {
-                            width:360px;
-                            gap: 6px;
+                        font-size:20px;
                         }
-                        border-radius: 10px;
-                        padding:10px;
-                        width:830px;
-                        border: 1px black solid;
+                        text-align: center;
+                        text-transform: uppercase;
+                        font-family: 'Jeju Gothic', sans-serif;
+                    }
+                    hr{
+                        margin-bottom: 20px;
+                    }
+                    #news-list, #newslist2{
+                        width:100%;
                         display: grid;
                         justify-content: center;
                         align-content: center;
-                        grid-template-columns: repeat(2, 1fr);
+                    
                         gap: 10px;
-                        .image-news{
+                        grid-auto-flow: row;
+                        .news-item{
                             @media screen and (max-width: 679px) {
+                                width:360px;
+                                gap: 6px;
+                            }
+                            border-radius: 10px;
+                            padding:10px;
+                            width:830px;
+                            border: 1px black solid;
+                            display: grid;
+                            justify-content: center;
+                            align-content: center;
+                            grid-template-columns: repeat(2, 1fr);
+                            gap: 10px;
+                            .image-news{
+                                @media screen and (max-width: 679px) {
+                                    grid-column-start: 1;
+                                    grid-row-start: 1;
+                                    width:120px;
+                                }
+                                display: grid;
                                 grid-column-start: 1;
                                 grid-row-start: 1;
-                                width:120px;
-                            }
-                            display: grid;
-                            grid-column-start: 1;
-                            grid-row-start: 1;
-                            grid-row-end: 3;
-                            width:200px;
-                            img{
-                                @media screen and (max-width: 679px) {
-                                    width:120px;
-                                    height:80px;
-                                }
+                                grid-row-end: 3;
                                 width:200px;
-                                height:120px;
-                                margin-top: 5px;
-                                object-fit: cover;
-                            }
-                        }
-                        .title{
-                            @media screen and (max-width: 679px) {
-                                width:200px;
-                            }
-                            display: grid;
-                            grid-column-start: 2;
-                            width:600px;
-                            h3{
-                                @media screen and (max-width: 679px) {
-                                    font-size:20px;
+                                img{
+                                    @media screen and (max-width: 679px) {
+                                        width:120px;
+                                        height:80px;
+                                    }
+                                    width:200px;
+                                    height:120px;
+                                    margin-top: 5px;
+                                    object-fit: cover;
                                 }
-                                font-size:30px;
-                                margin-bottom: 0;
-                                font-family: 'Inter', sans-serif;
                             }
-                            p{
-                                font-size:12px;
-                                margin-bottom: 2px;
-                                font-family: 'Inter', sans-serif;
-                            }
-                        }
-                        .content{
-                            @media screen and (max-width: 679px) {
-                                grid-column-start: 1;
-                                grid-column-end: 3;
-                                grid-row-start: 3;
-                            }
-                            grid-column-start: 2;
-                            grid-row-start: 2;
-                            p{
+                            .title{
                                 @media screen and (max-width: 679px) {
-                                    max-height:55px;
+                                    width:200px;
+                                }
+                                display: grid;
+                                grid-column-start: 2;
+                                width:600px;
+                                h3{
+                                    @media screen and (max-width: 679px) {
+                                        font-size:20px;
+                                    }
+                                    font-size:30px;
+                                    margin-bottom: 0;
+                                    font-family: 'Inter', sans-serif;
+                                }
+                                p{
+                                    font-size:12px;
+                                    margin-bottom: 2px;
+                                    font-family: 'Inter', sans-serif;
+                                }
+                            }
+                            .content{
+                                @media screen and (max-width: 679px) {
+                                    grid-column-start: 1;
+                                    grid-column-end: 3;
+                                    grid-row-start: 3;
+                                }
+                                grid-column-start: 2;
+                                grid-row-start: 2;
+                                p{
+                                    @media screen and (max-width: 679px) {
+                                        max-height:55px;
+                                        overflow: hidden;
+                                    }
+                                    max-height:75px;
                                     overflow: hidden;
+                                    font-size:15px;
+                                    margin-bottom: 5px;
+                                    font-family: 'Inter', sans-serif;
                                 }
-                                max-height:75px;
-                                overflow: hidden;
-                                font-size:15px;
-                                margin-bottom: 5px;
-                                font-family: 'Inter', sans-serif;
                             }
                         }
-                    }
+                    }                    
                 }
                 #slide-item{  
                     display:grid;
@@ -927,6 +931,11 @@ body{
                         }
                     }                
                 }
+            }
+        }
+        aside{
+            #select-kota{
+                width:150px;
             }
         }
         .temi{
