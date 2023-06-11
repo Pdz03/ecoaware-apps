@@ -1,4 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
+import '@splidejs/splide/dist/css/splide.min.css';
+import Splide from '@splidejs/splide';
 import '../component/hero-element';
 import '../component/cuaca-bar';
 import $ from 'jquery';
@@ -9,6 +11,9 @@ import CuacaSource from '../../Data/cuacaSource';
 import API_ENDPOINT from '../../globals/api-endpoint';
 
 const axios = require('axios');
+
+import { sliderTemplate } from '../templates/template-ecoaware';
+import '../../../style/style.css';
 
 const Home = {
   async render() {
@@ -46,30 +51,67 @@ const Home = {
     `;
     return html;
   },
+
   async afterRender() {
-    const newsListElement = document.getElementById('news-list');
+    const newsListElement1 = document.getElementById('news-list');
+    const newsListElement2 = document.getElementById('news-list2');
+    const slideItemElement = document.getElementById('slide-item');
+    slideItemElement.innerHTML = sliderTemplate();
 
-    // Ambil 2 berita pertama dari data
-    const newsData = getNews().slice(0, 2);
+    new Splide('.splide', {
+      perPage: 1,
+      autoplay: true,
+      type: 'fade',
+      rewind: true,
+    }).mount();
 
-    // Membuat elemen daftar untuk setiap objek berita dalam data
-    newsData.forEach((beritaItem) => {
+    // Ambil semua data berita
+    const newsData = getNews();
+
+    // Ambil 2 berita pertama untuk news-list
+    const newsDataList1 = newsData.slice(0, 2);
+
+    // Ambil 2 berita berikutnya untuk news-list2
+    const newsDataList2 = newsData.slice(2, 4);
+
+    // Membuat elemen daftar untuk setiap objek berita dalam data newsDataList1
+    newsDataList1.forEach((beritaItem) => {
       const listItemHtml = `
-      <div class="news-item">
-        <div class="image-news">
-          <img src="${beritaItem.gambar}" alt="${beritaItem.judul}" />
+        <div class="news-item">
+          <div class="image-news">
+            <img src="${beritaItem.gambar}" alt="${beritaItem.judul}" />
+          </div>
+          <div class="title">
+            <h3>${beritaItem.judul}</h3>
+            <p>${beritaItem.tanggal}</p>
+          </div>
+          <div class="content">
+            <p>${beritaItem.isi}...</p>
+            <a href="#/detail/${beritaItem.id}">Lihat Selengkapnya</a>
+          </div>
         </div>
-        <div class="title">
-          <h3>${beritaItem.judul}</h3>
-          <p>${beritaItem.tanggal}</p>
-        </div>
-        <div class="content">
-          <p>${beritaItem.isi}...</p>
-          <a href="#/detail/${beritaItem.id}">Lihat Selengkapnya</a>
-        </div>
-      </div>
       `;
-      newsListElement.innerHTML += listItemHtml;
+      newsListElement1.innerHTML += listItemHtml;
+    });
+
+    // Membuat elemen daftar untuk setiap objek berita dalam data newsDataList2
+    newsDataList2.forEach((beritaItem) => {
+      const listItemHtml = `
+        <div class="news-item">
+          <div class="image-news">
+            <img src="${beritaItem.gambar}" alt="${beritaItem.judul}" />
+          </div>
+          <div class="title">
+            <h3>${beritaItem.judul}</h3>
+            <p>${beritaItem.tanggal}</p>
+          </div>
+          <div class="content">
+            <p>${beritaItem.isi}...</p>
+            <a href="#/detail/${beritaItem.id}">Lihat Selengkapnya</a>
+          </div>
+        </div>
+      `;
+      newsListElement2.innerHTML += listItemHtml;
     });
 
     const dataProvinsi = await CuacaSource.ambilProvinsi();
@@ -164,4 +206,5 @@ const Home = {
     });
   },
 };
+
 export default Home;

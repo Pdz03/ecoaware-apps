@@ -112,9 +112,145 @@ const ourStoryTemplate = () => `
 </div>
 `;
 
+const contactTemplate = () => `
+<div class="tambahan" id ="body-tambahan">
+  <img src="images/pana.jpg" alt="pana" />
+  <h3>Merasa ingin menghubungi kami?<br>
+  Kirimkan pertanyaan Anda di sini dan kami<br>
+  akan menghubungi Anda sesegera mungkin!</h3>
+</div>
+
+<div class="chat" id="body-pesan">
+  <h3>Kirim Pesan Kepada Kami</h3>
+  <form id="messageForm">
+    <input type="text" id="name" required placeholder="Nama">
+    <input type="email" id="email" required placeholder="Email">
+    <textarea id="message" required placeholder="Tulis Pesan"></textarea>
+    <div class="form-group">
+    <button type="submit" onclick="sendEmail()">Kirim</button>
+    </div>
+  </form>
+</div>
+
+<div class="follow" id="body-follow">
+  <div class="sup">
+    <p><b>Support  @ecoaware.id</b></p>
+    <p>Follow Us</p>
+  </div>
+  <div class="sos">
+    <img src="images/instagram.png" alt="instagram" />
+    <img src="images/gmail.png" alt="gmail" />
+    <img src="images/facebook.png" alt="facebook" />
+    <img src="images/linkedin.png" alt="linkdn" />
+  </div>
+</div>
+`;
+
+const newsdetailTemplate = (berita) => `
+  <div class="detail-title">
+    <h2>${berita.judul}</h2>
+    <p>${berita.tanggal}</p>
+  </div>
+  <div class="image-news">
+    <img src="${berita.gambar}" alt="${berita.judul}" />
+  </div>
+  <div class="detail-content">
+    <p><b>${berita.tanggal} - </b>${berita.isi}</p>
+  </div>
+  <hr>
+  <div class="coment-container">
+  <h3>Komentar</h3>
+  <form>
+  <div class="form-group">
+  <label for="nama">Nama</label>
+  <input type="text" placeholder="Masukkan nama" required>
+  </div>
+  <div class="form-group">
+  <label for="komentar">Sampaikan komentarmu</label>
+  <textarea placeholder="Tulis komentar" required></textarea>
+  </div>
+  <div class="form-group">
+  <button type="submit">Kirim komentar</button>
+  </div>
+  </form>
+  <hr>
+  <div class="coment_item_container">
+    <div class="coment_item">
+        <img src="https://i.ibb.co/Zh4SvhQ/default.jpg" alt="user photo profile" crossorigin="anonymous">
+      <div class="content">
+      <h3 class="user_name">Eco Ways</h2>
+      <small class="coment_date">09 Juni 2023</small>
+      <p class="coment_content">Semoga bumi kita lekas membaik</p>
+      </div>
+    </div>
+    <div class="reply_item">
+      <img src="https://i.ibb.co/Zh4SvhQ/default.jpg" alt="user photo profile" crossorigin="anonymous">
+      <div class="content">
+      <h3 class="user_name">Tukang bakso</h2>
+      <small class="reply_date">11 Juni 2023</small>
+      <p class="reply_content">Aamiin</p>
+      </div>
+    </div>
+    <div class="rep_coment" id="repcom_container" hidden>
+    <input type="text" placeholder="Nama">
+    <input type="text" placeholder="Balasan komentar">
+    <button type="submit">Balas</button>
+    </div>
+  </div>
+  <div class="coment_item_container">
+  <div class="coment_item">
+      <img src="https://i.ibb.co/Zh4SvhQ/default.jpg" alt="user photo profile" crossorigin="anonymous">
+    <div class="content">
+    <h3 class="user_name">Eko Wes</h2>
+    <small class="coment_date">08 Juni 2023</small>
+    <p class="coment_content">Ayo lindungi bumi kita</p>
+    </div>
+  </div>
+</div>
+<div class="coment_item_container">
+<div class="coment_item">
+  <img src="https://i.ibb.co/Zh4SvhQ/default.jpg" alt="user photo profile" crossorigin="anonymous">
+  <div class="content">
+  <h3 class="user_name">Pahlawan kemaleman</h2>
+  <small class="coment_date">07 Juni 2023</small>
+  <p class="coment_content">Ada yang tau obat untuk mata minus?</p>
+  </div>
+</div>
+<div class="reply_item">
+  <img src="https://i.ibb.co/Zh4SvhQ/default.jpg" alt="user photo profile" crossorigin="anonymous">
+  <div class="content">
+  <h3 class="user_name">EyeAware Solution</h2>
+  <small class="reply_date">12 Juni 2023</small>
+  <p class="reply_content">Ada kak, kakak bisa kunjungi website kami untuk tata cara pembelian obat mata minus dari kami, terimakasih</p>
+  </div>
+</div>
+</div>
+</div>
+`;
+
+const sliderTemplate = () => `
+<div class="splide">
+<div class="splide__track">
+  <ul class="splide__list">
+    <li class="splide__slide" data-splide-interval="5000"><img src="./images/image1.jpg" /></li>
+    <li class="splide__slide" data-splide-interval="5000"><img src="./images/image2.jpg" /></li>
+    <li class="splide__slide" data-splide-interval="5000"><img src="./images/image3.jpg" /></li>
+    <!-- Tambahkan slide lainnya sesuai kebutuhan -->
+  </ul>
+</div>
+<div class="splide__progress">
+  <div class="splide__progress__bar">
+  </div>
+</div>
+</div>
+`;
+
 export {
   WelcomeTemplate,
   FormLoginTemplate,
   FormRegisterTemplate,
   ourStoryTemplate,
+  contactTemplate,
+  newsdetailTemplate,
+  sliderTemplate,
 };

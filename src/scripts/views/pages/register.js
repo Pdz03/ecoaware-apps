@@ -30,7 +30,11 @@ const Register = {
         pass: inputPass.value,
       };
 
-      $.post('http://localhost:8080/user/add', initValue, (data) => {
+      // $.post('http://localhost:8080/user/add', initValue, (data) => {
+      //   console.log(data);
+      // });
+
+      $.post('http://backend-ecoaware.up.railway.app/user/add', initValue, (data) => {
         console.log(data);
       });
 

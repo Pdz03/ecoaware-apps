@@ -4,15 +4,6 @@
     box-sizing: border-box;
   }
 
-img{
-    height:45px;
-    padding: 0;
-	margin: 0;
-	text-align: left;
-	box-sizing: border-box;
-	display: inline-block;
-}
-
 .nav {
     display: flex;
     align-items: center;
@@ -82,4 +73,153 @@ footer{
 	padding: 2em;
 	width: 100%;
 	text-align: center;
+}
+
+.kontak-atas,
+.follow
+ {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  }
+
+.kontak-atas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    text-align: center;
+  }
+
+  /* CSS untuk form */
+#messageForm {
+  background-color: #8BB68A;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="button"] {
+  background-color: #FD9113;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  max-width: 200px;
+}
+
+input[type="button"]:hover {
+  background-color: #E57900;
+}
+
+input[type="button"] {
+  position: relative;
+  overflow: hidden;
+}
+
+input[type="button"]:before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  left: -10px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+/*teks follow us*/
+.sup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.sup p {
+  font-size: 20px;
+}
+
+/*gambawah*/
+.gambawah {
+  width: 100%;
+  height: 1000px;
+}
+
+.gambawah img {
+  width: 100%;
+  height: 100%;
+}
+
+/* slider*/
+.slider {
+  width: 400px;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider-container {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slider img {
+  width: 400px;
+  height: 300px;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 24px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.arrow-left {
+  left: 10px;
+}
+
+.arrow-right {
+  right: 10px;
+}
+
+.slide-enter {
+  transform: translateX(100%);
+}
+
+.slide-enter.slide-enter-active {
+  transform: translateX(0);
+  transition: transform 0.5s ease;
+}
+
+.slide-exit {
+  transform: translateX(0);
+}
+
+.slide-exit.slide-exit-active {
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
 }

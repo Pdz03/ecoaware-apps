@@ -20,6 +20,7 @@ class App {
     //     skipLink.blur();
     //   });
     } catch (error) {
+      console.log(error);
       const mainContent = document.querySelector('#mainContent');
       mainContent.innerHTML = `
       <div class="error-view">
