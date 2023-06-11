@@ -250,10 +250,7 @@ export {
   FormLoginTemplate,
   FormRegisterTemplate,
   ourStoryTemplate,
-  pesanTemplate,
-  followTemplate,
-  tambahanTemplate,
-  gambawahTemplate,
+  contactTemplate,
   newsdetailTemplate,
   sliderTemplate,
 };

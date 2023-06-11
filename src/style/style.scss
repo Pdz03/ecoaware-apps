@@ -198,14 +198,14 @@ body{
                     rgba(2, 2, 9, 0.5)
                 ),
                 url('../public/images/image2.jpg');
-                @supports (background-image: url('../../dist/images/image2.webp')) {
-                    // Browser mendukung format WebP
-                    background-image: linear-gradient(
-                        rgba(2, 2, 9, 0.5),
-                        rgba(2, 2, 9, 0.5)
-                      ),
-                      url('../../dist/images/image2.webp'); 
-                  }
+                // @supports (background-image: url('../../dist/images/image2.webp')) {
+                //     // Browser mendukung format WebP
+                //     background-image: linear-gradient(
+                //         rgba(2, 2, 9, 0.5),
+                //         rgba(2, 2, 9, 0.5)
+                //       ),
+                //       url('../../dist/images/image2.webp'); 
+                //   }
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;

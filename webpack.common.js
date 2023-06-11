@@ -93,7 +93,7 @@ module.exports = {
           to: path.resolve(__dirname, 'dist/images'),
         },
       ],
-    }),    
+    }),
     new ImageminWebpWebpackPlugin({
       config: [
         {
@@ -123,6 +123,6 @@ module.exports = {
       ],
       overrideExtension: true,
       strict: false,
-    }),    
+    }),
   ],
 };
