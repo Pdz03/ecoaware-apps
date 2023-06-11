@@ -168,57 +168,50 @@ body{
     }
     #mainContent{
         margin-bottom:90px;
-        .hero-element {
-            .hero {
-              min-height: 350px;
-              width: 100%;
-              background-color: Black !important;
-              background-size: cover;
-              background-position: center;
-              background-repeat: no-repeat;
-              background-image: linear-gradient(rgba(2, 2, 9, 0.5), rgba(2, 2, 9, 0.5));
-          
-              @media screen and (max-width: 650px) {
-                background-image: url('../public/images/image2-small.jpg');
-          
-                @supports (background-image: url('../../dist/images/image2-small.webp')) {
-                  // Browser mendukung format WebP untuk resolusi kecil
-                  background-image: url('../../dist/images/image2-small.webp');
-                }
-              }
-          
-              @media screen and (min-width: 651px) {
-                background-image: url('../public/images/image2-large.jpg');
-          
-                @supports (background-image: url('../../dist/images/image2-large.webp')) {
-                  // Browser mendukung format WebP untuk resolusi besar
-                  background-image: url('../../dist/images/image2-large.webp');
-                }
-              }
-          
-              .inner-hero {
-                max-width: 600px;
-                padding: 40px 0 0 20px;
-          
+        hero-element{
+            .hero{
                 @media screen and (max-width: 679px) {
-                  padding: 20px 0 0 10px;
-                  max-width: 300px;
+                    min-height: 250px;
                 }
-          
-                .judul-hero {
-                  text-align: left;
-                  color: #fff;
-                  font-weight: 400;
-                  font-size: 32px;
-                  font-family: 'inter', sans-serif;
-          
-                  @media screen and (max-width: 679px) {
-                    font-size: 20px;
+                min-height: 350px;
+                width: 100%;
+                background-color: Black !important;
+                background-image: linear-gradient(
+                    rgba(2, 2, 9, 0.5),
+                    rgba(2, 2, 9, 0.5)
+                ),
+                url('../public/images/image2.jpg');
+                @supports (background-image: url('../../dist/images/image2.webp')) {
+                    // Browser mendukung format WebP
+                    background-image: linear-gradient(
+                        rgba(2, 2, 9, 0.5),
+                        rgba(2, 2, 9, 0.5)
+                      ),
+                      url('../../dist/images/image2.webp'); 
                   }
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                .inner-hero {
+                    @media screen and (max-width: 679px) {
+                        padding:20px 0 0 10px;
+                        max-width: 300px;
+                    }
+                    max-width: 600px;
+                    padding:40px 0 0 20px;
+                    .judul-hero {
+                        @media screen and (max-width: 679px) {
+                        font-size: 20px;
+                        }
+                        text-align: left;
+                        color: #fff;
+                        font-weight: 400;
+                        font-size: 32px;
+                        font-family: 'inter', sans-serif;
+                    }
                 }
-              }
             }
-          }          
+        }
         main{
             padding: 40px 80px 40px 80px;
             .content{
