@@ -165,3 +165,61 @@ input[type="button"]:before {
   width: 100%;
   height: 100%;
 }
+
+/* slider*/
+.slider {
+  width: 400px;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider-container {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slider img {
+  width: 400px;
+  height: 300px;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 24px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.arrow-left {
+  left: 10px;
+}
+
+.arrow-right {
+  right: 10px;
+}
+
+.slide-enter {
+  transform: translateX(100%);
+}
+
+.slide-enter.slide-enter-active {
+  transform: translateX(0);
+  transition: transform 0.5s ease;
+}
+
+.slide-exit {
+  transform: translateX(0);
+}
+
+.slide-exit.slide-exit-active {
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
