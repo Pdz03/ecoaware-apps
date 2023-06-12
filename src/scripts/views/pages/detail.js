@@ -8,9 +8,11 @@ const detail = {
     return `
     <hero-element></hero-element>
     <main id="content">
+    <div class="main-container">
       <section class="content">
         <div id="news-detail"></div>
       </section>
+      </div>
     </main>
     `;
   },
