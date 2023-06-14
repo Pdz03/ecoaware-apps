@@ -6,6 +6,7 @@ import Dashboard from '../views/pages/dashboard';
 import ourstory from '../views/pages/tentang-kami';
 import kontak from '../views/pages/kontak';
 import detail from '../views/pages/detail';
+import New from '../views/pages/tambahnews';
 
 const routes = {
   '/': Home, // default page
@@ -17,6 +18,7 @@ const routes = {
   '/ourstory': ourstory,
   '/kontak': kontak,
   '/detail/:id': detail,
+  '/new': New,
 };
 
 export default routes;

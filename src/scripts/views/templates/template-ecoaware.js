@@ -245,6 +245,25 @@ const sliderTemplate = () => `
 </div>
 `;
 
+const newnews = () => `
+<h1>Tambah Berita</h1>
+  <form id="newsForm">
+    <label for="judul">Judul:</label>
+    <input type="text" id="judul" name="judul" required><br><br>
+    
+    <label for="tanggal">Tanggal:</label>
+    <input type="text" id="tanggal" name="tanggal" required><br><br>
+    
+    <label for="isi">Isi:</label><br>
+    <textarea id="isi" name="isi" required></textarea><br><br>
+    
+    <label for="gambar">Gambar:</label>
+    <input type="file" id="gambar" name="gambar" accept="image/*" required><br><br>
+    
+    <input type="submit" value="Tambah Berita">
+  </form>
+  `;
+
 export {
   WelcomeTemplate,
   FormLoginTemplate,
@@ -253,4 +272,5 @@ export {
   contactTemplate,
   newsdetailTemplate,
   sliderTemplate,
+  newnews,
 };
