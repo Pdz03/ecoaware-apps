@@ -44,7 +44,7 @@ class AppBar extends HTMLElement {
         <a href="#/ourstory">Tentang</a>
       </li>
       <li class="navitems">
-        <a href="#/kontak">Kontak</a
+        <a href="#/profil">Kontak</a
         >
       </li>
       <li class="navitems"><a href="#/welcome"><img src="./icons/icon-profil.png"></a></li>

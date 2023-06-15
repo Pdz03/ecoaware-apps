@@ -223,3 +223,79 @@ input[type="button"]:before {
   transform: translateX(-100%);
   transition: transform 0.5s ease;
 }
+
+.setting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.setting h1 {
+  text-align: center;
+  margin-top: 0;
+}
+
+.setting label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.setting input[type="text"],
+.setting input[type="date"],
+.setting input[type="email"],
+.setting input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.setting #gantiPassword {
+  color: blue;
+  cursor: pointer;
+}
+
+.setting #passwordContainer {
+  display: none;
+}
+
+.setting #passwordContainer.show {
+  display: block;
+}
+
+.setting button {
+  width: 49%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.setting input[type="submit"] {
+  width: 49%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin-top: 10px;
+  background-color: blue;
+  color: white;
+}
+
+
+
+.setting #logoutButton {
+  background-color: red;
+  color: #fff;
+}
