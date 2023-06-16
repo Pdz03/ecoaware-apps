@@ -31,7 +31,7 @@ const Dashboard = {
       },
     });
 
-    $.get('http://localhost:8080/user/check-session', (data) => {
+    $.get('https://backend-ecoaware.up.railway.app/user/check-session', (data) => {
       if (!data.success) {
         // Jika tidak ada sesi tersimpan, arahkan ke halaman login
         toastr.error('Anda belum login!');
@@ -39,7 +39,7 @@ const Dashboard = {
       }
     });
 
-    axios.get('http://localhost:8080/user/loginauth', { withCredentials: true })
+    axios.get('https://backend-ecoaware.up.railway.app/user/loginauth')
       .then((response) => {
         const resdata = response.data.dataLogin;
         console.log(resdata);

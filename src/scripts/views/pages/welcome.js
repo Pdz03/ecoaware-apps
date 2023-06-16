@@ -18,7 +18,7 @@ const Welcome = {
     const itemContainer = document.querySelector('#welcome-container');
     itemContainer.innerHTML = WelcomeTemplate();
 
-    $.get('http://localhost:8080/user/check-session', (data) => {
+    $.get('https://backend-ecoaware.up.railway.app/user/check-session', (data) => {
       if (data.success) {
         // Jika sesi tersimpan, arahkan ke halaman dashboard
         toastr.error('Anda sudah login!');

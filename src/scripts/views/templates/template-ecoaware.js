@@ -63,9 +63,9 @@ const FormRegisterTemplate = () => `
 </div>
 <div class="register-text">
 <h2>Daftar</h2>
-<form action="localhost:8080/user/add" method="POST">
+<form action="" method="POST">
 <div class="form-group">
-            <input type="text" id="nama" name="username" class="form-control" placeholder="Username" required/>
+            <input type="text" id="nama" name="name" class="form-control" placeholder="Username" required/>
           </div>
           <div class="form-group">
             <input type="email" id="email" name="email" class="form-control" placeholder="Email" required/>
