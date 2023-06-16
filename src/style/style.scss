@@ -23,6 +23,12 @@ body{
                 transform: translate(0, 0);
             }
         }
+        .nav-user.open{
+            @media screen and (min-width: 680px) {
+                -webkit-transform: translate(0, 0);
+                transform: translate(0, 0);
+            }
+        }
         .appmob{
             @media screen and (min-width: 680px) {
                 display:none;
@@ -53,6 +59,7 @@ body{
                 .title{
                     display:flex;
                     padding:5px;
+                    margin-left: 15px;
                     font-family: 'Roboto', sans-serif;
                     color:#728F71;
                 }
@@ -83,7 +90,7 @@ body{
                 display:none;
             }
             @media screen and (max-width: 679px) {
-                width: 30%;
+                width: 180px;
                 right:0;
                 position:fixed;
                 z-index: 888;
@@ -115,6 +122,77 @@ body{
                     }
                 }
                 .navitemsmob:hover{
+                    background-color: #f2f2f2;
+                }
+            }
+        }
+        .nav-user{
+            @media screen and (max-width: 679px) {
+                display:none;
+            }
+            @media screen and (min-width: 680px) {
+                width:200px;
+                right:0;
+                top:60px;
+                position:fixed;
+                margin-bottom: 20px;
+                -webkit-transform: translate(200%, 0);
+                transform: translate(200%, 0);
+                transition: transform 0.3s ease;
+            }
+            .navlist-user {
+                padding: 0;
+                margin: 0;
+                list-style-type: none;
+                padding:10px;
+                background-color: white;
+                border-radius: 5px;
+                .navitems-user {
+                    display: list-item;
+                    padding: 10px 0 10px 0;
+                    width: 100%;
+                    height:35px;
+                    box-sizing: border-box;
+                    background-color: white;
+                    text-decoration: none;
+                    cursor: pointer;
+                    .icon-user{
+                        padding:0 5px 0 5px;
+                        height:15px;
+                        width:25px;
+                    }
+                    a{
+                        color:rgb(0, 0, 0);
+                        text-decoration: none;
+                        display: inline-block;
+                        padding: 5px;
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: 700;
+                    }
+                }
+                .navitems-close {
+                    display: list-item;
+                    width: 100%;
+                    height:25px;
+                    box-sizing: border-box;
+                    border-top: 1px solid black;
+                    background-color: white;
+                    text-decoration: none;
+                    text-align: center;
+                    cursor: pointer;
+                    a{
+                        color:rgb(0, 0, 0);
+                        text-decoration: none;
+                        display: inline-block;
+                        padding: 5px;
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: 700;
+                    }
+                }
+                .navitems-close:hover{
+                    background-color: #f2f2f2;
+                }
+                .navitems-user:hover{
                     background-color: #f2f2f2;
                 }
             }
@@ -227,21 +305,39 @@ body{
                         font-family: 'inter', sans-serif;
                     }
                 }
+                .btn-cuaca{
+                    @media screen and (min-width: 680px) {
+                        visibility: hidden;
+                    }
+                    display:grid;
+                    justify-content: end;
+                    margin-top:120px;
+                    .opn-cuaca{
+                        padding:5px 5px 5px 15px;
+                        background-color: #728F71;
+                        color:white;
+                        font-family: 'inter', sans-serif;
+                        font-weight: 400;
+                    }
+                    .opn-cuaca:hover{
+                        background-color: #678066;
+                    }
+                }
             }
         }
         main{
             @media screen and (max-width: 679px) {
-                padding: 30px 60px 30px 60px;
+                margin: 8px 0 8px 0;
                 }
-            padding: 40px 80px 40px 80px;
+            margin: 40px 80px 40px 80px;
+            padding-bottom:80px; 
             .main-container{
                 display:grid;
                 grid-auto-flow:column;
                 width:100%;
                 .content{
                     display: grid;
-                    justify-content: center;
-                    align-content: center;
+                    width:100%;
                     h1{
                         @media screen and (max-width: 679px) {
                         font-size:20px;
@@ -254,26 +350,21 @@ body{
                         margin-bottom: 20px;
                     }
                     #news-list, #news-list2{
-                        width:100%;
                         display: grid;
                         justify-content: center;
-                        align-content: center;
-                    
                         gap: 10px;
                         grid-auto-flow: row;
                         .news-item{
                             @media screen and (max-width: 679px) {
                                 width:360px;
                                 gap: 6px;
+                                padding:6px;
                             }
                             border-radius: 10px;
                             padding:10px;
-                            width:830px;
+                            width:750px;
                             border: 1px black solid;
                             display: grid;
-                            justify-content: center;
-                            align-content: center;
-                            grid-template-columns: repeat(2, 1fr);
                             gap: 10px;
                             .image-news{
                                 @media screen and (max-width: 679px) {
@@ -285,7 +376,7 @@ body{
                                 grid-column-start: 1;
                                 grid-row-start: 1;
                                 grid-row-end: 3;
-                                width:200px;
+                                width:30%;
                                 img{
                                     @media screen and (max-width: 679px) {
                                         width:120px;
@@ -303,7 +394,7 @@ body{
                                 }
                                 display: grid;
                                 grid-column-start: 2;
-                                width:600px;
+                                width:70%;
                                 h3{
                                     @media screen and (max-width: 679px) {
                                         font-size:20px;
@@ -347,7 +438,11 @@ body{
                         padding: 15px;   
                         .splide { 
                             .splide__track{
-                                width:800px; 
+                                @media screen and (max-width: 679px) {
+                                    width:360px;
+                                    height:180px;
+                                }
+                                width:720px; 
                                 height:400px;  
                                 .splide__list{
                                     .splide__slide{
@@ -379,7 +474,7 @@ body{
                             align-content: center;
                             font-family: 'Inter', sans-serif;
                             text-align: center;
-                            width:100%;
+                            width:80%;
                             margin-bottom:30px;
                             h2,p {
                                 display: grid;
@@ -498,12 +593,153 @@ body{
                     }                    
                 }
                 aside{
-                    display:grid;
-                    .title{
-                        display: grid;
+                    @media screen and (max-width: 679px) {
+                    position: fixed;
+                    background:rgba(0, 0, 0, 0.7);
+                    z-index: 999;
+                    top: 0;
+                    left: 0;
+                    width:100%;
+                    height:100%;
+                    margin-left:0;
+                    visibility: hidden;
                     }
-                    .select-loc{
-                        display: grid;
+                    margin-left:40px;
+                    visibility: visible;
+                    cuaca-bar{
+                        .cuaca-container{
+                            @media screen and (max-width: 679px) {
+                                position: relative;
+                                z-index: 999;
+                                width:90%;
+                                margin: 10% auto;
+                                border-radius: 10px;
+                                padding:10px;
+                            }
+                            margin: 0;
+                            background-color: #E0E0E0;
+                            border-radius: 10px;
+                            font-family: 'inter', sans-serif;
+                            .title{
+                                display: grid;
+                                text-align: center;
+                                padding:10px;
+                                font-size: 20px;
+                            }
+                            .select-loc{
+                                @media screen and (max-width: 679px) {
+                                    margin:10px;
+                                }
+                                margin:20px;
+                                display: grid;
+                                gap:10px;
+                                    option{
+                                    background-color: #6e6c6c;
+                                    width:100%;
+                                    }
+                            }
+                            #cuaca{
+                                width:100%;
+                                padding:30px 10px 30px 10px;
+                                background-color: #8B9BA7;
+                                border-radius: 10px;
+                                margin-top:50px;
+                                justify-items: center;
+                                display: grid;
+                                #tanggal, #daerah{
+                                    font-weight: 600;
+                                    text-align: center;
+                                    color:white;
+                                }
+                                .cuaca-cont{
+                                    @media screen and (max-width: 679px) {
+                                        gap:10px;
+                                        margin: 15px 0 15px 0;
+                                    }
+                                    display:grid;
+                                    justify-items: center;
+                                    grid-template-columns: repeat(4, 1fr);
+                                    gap:15px;
+                                    margin: 20px 0 20px 0;
+                                    .cuaca-list{
+                                        @media screen and (max-width: 679px) {
+                                            width:70px;
+                                        }
+                                        display: grid;
+                                        justify-content: center;
+                                        align-content: center;
+                                        height:180px;
+                                        width:80px;
+                                        background-color: white;
+                                        border-radius: 20px;
+                                        #list-waktu{
+                                            font-weight: 600;
+                                            text-align: center;
+                                            height: 20px;
+                                        }
+                                        #list-cuaca{
+                                            display: grid;
+                                            justify-items: center;
+                                            align-content: stretch;
+                                            text-align: center;
+                                            font-size: 12px;
+                                            height: 60px;
+                                        }
+                                        #list-suhu{
+                                            font-weight: 600;
+                                            text-align: center;
+                                            margin-bottom: 10px;
+                                            height: 20px;
+                                            abbr{
+                                                text-decoration: none;
+                                            }
+                                        }
+                                        #list-more{
+                                            display: grid;
+                                            align-items: start;
+                                            padding:1px;
+                                            grid-template-columns: repeat(2, 1fr);
+                                            height: 40px;
+                                            #list-lembab{
+                                                display: grid; 
+                                                justify-items: center;
+                                                text-align: center;
+                                                gap:3px;
+                                                font-size:10px;
+                                                abbr{
+                                                    text-decoration: none;
+                                                }
+                                            }
+                                            #list-angin{
+                                                display: grid; 
+                                                justify-items: center;
+                                                text-align: center;
+                                                gap:3px;
+                                                font-size:10px;
+                                                abbr{
+                                                    text-decoration: none;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            #cls-cuaca{
+                                @media screen and (min-width: 680px) {
+                                    visibility: hidden;
+                                }
+                                padding:5px;
+                                margin-top: 20px;
+                                background-color:#6e6c6c;
+                                color:white;
+                                width:30%;
+                                font-weight: 600;
+                                font-family: 'inter', sans-serif;
+                            }
+                            #cls-cuaca:hover{
+                                background-color:#878585;
+                            }
+                        }
                     }
                 }
             }
@@ -792,6 +1028,71 @@ body{
                     }
                 }
             }
+            .dashboard{
+                font-family: 'Roboto', sans-serif;
+            }
+            #welcome-log-container{
+                @media screen and (max-width: 1000px) {
+                    grid-auto-flow:dense;
+                    gap: 20px;
+                }
+                display: grid;
+                justify-content: center;
+                align-content: center;
+              
+                gap: 50px;
+                grid-auto-flow: column;
+                .welcome-text{
+                    @media screen and (max-width: 1000px) {
+                        width:300px;
+                        grid-row-start: 2;
+                    }
+                    display:grid;
+                    
+                    width:600px;
+                    height:400px;
+                    padding:20px 0 20px 20px;
+                    h2{
+                        @media screen and (max-width: 1000px) {
+                            font-size:25px;
+                            padding-top:20px;
+                        }
+                        padding-top:50px;
+                        margin-bottom:0;
+                        color: #8BB68A;
+                        font-size:45px;
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: bold;
+                    }
+                    p{
+                        @media screen and (max-width: 1000px) {
+                            font-size:15px;
+                        }
+                        font-size: 20px;
+                        font-family: 'Inter', sans-serif;
+                    }
+                }
+                .welcome-image{
+                    @media screen and (max-width: 1000px) {
+                        width:300px;
+                        grid-row-start: 1;
+                        padding:10px;
+                    }
+                    display:grid;
+                    width:500px;
+                    justify-content: center;
+                    align-content: center;
+                    padding:30px;
+                    img{
+                        @media screen and (max-width: 1000px) {
+                            width:200px;
+                        }
+                        width:100%;
+                        height:100%;
+                        object-fit: cover;
+                    }
+                }
+            }
             #kontak-container{
                 @media screen and (max-width: 679px) {
                     grid-template-columns: 1fr;
@@ -1040,11 +1341,14 @@ body{
         }
     }        
     footer{
+        position:relative;
+        bottom:0;
         background-color: #679366;
         color: black;
         font-size: 14px;
         padding: 2em;
         width: 100%;
         text-align: center;
+        height:80px;
     }
 }

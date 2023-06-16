@@ -13,6 +13,31 @@ agar kita memiliki masa depan yang lebih baik.”</p>
 </div>
 `;
 
+const WelcomeUserTemplate = () => `
+<div class="welcome-text">
+<h2 id="welcome-user"></h2>
+<p>Terimakasih telah bergabung bersama kami di EcoAware Apps. Sebagai Kontributor, kamu dapat membantu kami dalam mengisi artikel terkait perubahan iklim atau bencana alam di sekitarmu. Dengan begitu, kamu sudah berkontribusi dalam memelihara alam ini melalui artikel yang diharapkan dapat mengingatkan masyarakat akan pentingnya menjaga alam ini.</p>
+</div>
+</div>
+<div class="welcome-image">
+<img src="./images/welcome-image.png" alt="welcome-image">
+</div>
+`;
+
+const WelcomeAdminTemplate = () => `
+<div class="welcome-text">
+<h2 id="welcome-admin"></h2>
+<p>Sebagai Admin, kita dapat mengelola artikel yang masuk, mengelola para kontributor yang mendaftar, mengelola pesan masuk dan komentar.</p>
+<div class="button-element">
+<a class="btn" href="#/login">Masuk</a>
+<a class="btn" href="#/register">Daftar</a>
+</div>
+</div>
+<div class="welcome-image">
+<img src="./images/welcome-image.png" alt="welcome-image">
+</div>
+`;
+
 const FormLoginTemplate = () => `
 <div class="login-image">
 <img src="./images/register-login-image.png" alt="login-image">
@@ -247,6 +272,8 @@ const sliderTemplate = () => `
 
 export {
   WelcomeTemplate,
+  WelcomeUserTemplate,
+  WelcomeAdminTemplate,
   FormLoginTemplate,
   FormRegisterTemplate,
   ourStoryTemplate,

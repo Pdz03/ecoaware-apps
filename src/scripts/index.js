@@ -38,9 +38,14 @@ window.addEventListener('load', () => {
 
 const menu = document.querySelector('#menu');
 const drawer = document.querySelector('#drawer');
+const navitem = document.querySelector('.navlistmob');
 
 menu.addEventListener('click', (event) => {
   drawer.classList.toggle('open');
   event.stopPropagation();
   event.preventDefault();
+});
+
+navitem.addEventListener('click', () => {
+  drawer.classList.remove('open');
 });
