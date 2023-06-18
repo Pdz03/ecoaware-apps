@@ -12,12 +12,12 @@ class AppBar extends HTMLElement {
   }
 
   _verifyLogin() {
-    axios.get('https://backend-ecoaware.up.railway.app/user/loginauth', { withCredentials: true })
+    axios.get('http://localhost:8080/user/loginauth', { withCredentials: true })
       .then((response) => {
         const resdata = response.data.dataLogin;
         console.log(resdata);
 
-        loginInit.init();
+        loginInit.init(resdata.id);
       })
       .catch((error) => {
         const appLog = this.querySelector('#app-log');
@@ -72,7 +72,7 @@ class AppBar extends HTMLElement {
       <li class="navitems">
         <a href="#/kontak">Kontak</a>
       </li>
-      <li class="navitems" id="app-log" ><a id="user-app"><img src="./icons/icon-profil.png"></a></li>
+      <li class="navitems" id="app-log" hidden ><a id="user-app"><img src="./icons/icon-profil.png"></a></li>
       <li class="navitems" id="app-gen" ><a href="#/welcome"><img src="./icons/icon-profil.png"></a></li>
     </ul>
   </nav>

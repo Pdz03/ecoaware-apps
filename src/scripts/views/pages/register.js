@@ -2,6 +2,7 @@
 import $ from 'jquery';
 import toastr from 'toastr';
 import 'toastr/build/toastr.css';
+import API_ENDPOINT from '../../globals/api-endpoint';
 import { FormRegisterTemplate } from '../templates/template-ecoaware';
 
 const Register = {
@@ -59,7 +60,7 @@ const Register = {
         pass: inputPass.value,
       };
 
-      $.post('https://backend-ecoaware.up.railway.app/user/add', initValue, (data) => {
+      $.post(API_ENDPOINT.userRegister, initValue, (data) => {
         console.log(data);
         if (data.success) {
           toastr.success('User berhasil terdaftar, silakan login');

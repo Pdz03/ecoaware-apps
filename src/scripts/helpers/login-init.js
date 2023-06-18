@@ -3,14 +3,14 @@ import $ from 'jquery';
 import toastr from 'toastr';
 
 const loginInit = {
-  init() {
+  init(authorId) {
     const userMenu = document.querySelector('#user-menu');
     const userMenuMob = document.querySelector('#user-menumob');
     userMenu.innerHTML = `
-  <a href="#/input-artikel">+Tambah Artikel</a>
+  <a href="#/input-artikel/${authorId}">+Tambah Artikel</a>
   `;
     userMenuMob.innerHTML = `
-  <a href="#/input-artikel">+Tambah Artikel</a>
+  <a href="#/input-artikel/${authorId}">+Tambah Artikel</a>
   `;
 
     const navUser = document.querySelector('#drawer-user');
@@ -72,7 +72,7 @@ const loginInit = {
           },
         });
 
-        $.post('https://backend-ecoaware.up.railway.app/user/logout')
+        $.post('http://localhost:8080/user/logout')
           .done((data) => {
             if (data.success) {
               toastr.success('Logout berhasil');

@@ -2,7 +2,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import $ from 'jquery';
 import toastr from 'toastr';
-
+import API_ENDPOINT from '../../globals/api-endpoint';
 import loginInit from '../../helpers/login-init';
 
 import { FormLoginTemplate } from '../templates/template-ecoaware';
@@ -26,7 +26,7 @@ const Login = {
       },
     });
 
-    $.get('https://backend-ecoaware.up.railway.app/user/check-session', (data) => {
+    $.get(API_ENDPOINT.checkSession, (data) => {
       if (data.success) {
         // Jika sesi tersimpan, arahkan ke halaman dashboard
         toastr.error('Anda sudah login!');
@@ -40,7 +40,7 @@ const Login = {
     const inputEmail = document.getElementById('email');
     const inputPass = document.getElementById('pass');
 
-    axios.get('https://backend-ecoaware.up.railway.app/user/registerauth', { withCredentials: true })
+    axios.get(API_ENDPOINT.registerAuth, { withCredentials: true })
       .then((response) => {
         const resdata = response.data;
         inputEmail.value = resdata;
@@ -59,7 +59,7 @@ const Login = {
         pass: inputPass.value,
       };
 
-      $.post('https://backend-ecoaware.up.railway.app/user/login', initValue)
+      $.post(API_ENDPOINT.userLogin, initValue)
         .done((data) => {
           if (data.success) {
             toastr.success('Login berhasil');

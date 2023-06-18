@@ -1,6 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import $ from 'jquery';
 import toastr from 'toastr';
+import 'toastr/build/toastr.css';
+import API_ENDPOINT from '../../globals/api-endpoint';
 
 import { WelcomeTemplate } from '../templates/template-ecoaware';
 
@@ -18,7 +20,7 @@ const Welcome = {
     const itemContainer = document.querySelector('#welcome-container');
     itemContainer.innerHTML = WelcomeTemplate();
 
-    $.get('https://backend-ecoaware.up.railway.app/user/check-session', (data) => {
+    $.get(API_ENDPOINT.checkSession, (data) => {
       if (data.success) {
         // Jika sesi tersimpan, arahkan ke halaman dashboard
         toastr.error('Anda sudah login!');
