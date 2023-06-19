@@ -192,22 +192,22 @@ const ourStoryTemplate = () => `
 <h1>Tim Kami</h1>
 <div class="tim-container">
 <div class="list-tim">
-<div id="atas">
+<div id="atas1">
 </div>
 <p>Syaifudin Fendi Prasetyo</p>
 </div>
 <div class="list-tim">
-<div id="atas">
+<div id="atas2">
 </div>
 <p>Anisa Kamalia Fitri</p>
 </div>
 <div class="list-tim">
-<div id="atas">
+<div id="atas3">
 </div>
 <p>Daffa Naufal Santoso</p>
 </div>
 <div class="list-tim">
-<div id="atas">
+<div id="atas4">
 </div>
 <p>Luthfi Khaerunnisa</p>
 </div>
@@ -355,6 +355,39 @@ const sliderTemplate = () => `
 </div>
 `;
 
+  const profilset = () => `
+  <h1>Profil Setting</h1>
+  <form id="profileForm">
+    <label for="nama">Nama:</label>
+    <input type="text" id="nama" name="nama" required><br><br>
+    
+    <p id="tanggalLahirToggle">Tanggal Lahir</p>
+    
+    <div id="tanggalLahirContainer" style="display: none;">
+      <label for="tanggal_lahir">Tanggal Lahir:</label>
+      <input type="date" id="tanggal_lahir" name="tanggal_lahir" required><br><br>
+    </div>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+    
+    <p id="gantiPassword">Ganti Password?</p>
+    
+    <div id="passwordContainer" style="display: none;">
+      <label for="password_lama">Password Lama:</label>
+      <input type="password" id="password_lama" name="password_lama" required><br><br>
+      
+      <label for="password_baru">Password Baru:</label>
+      <input type="password" id="password_baru" name="password_baru" required><br><br>
+    </div>
+    
+    <div class="button-group">
+    <input type="submit" value="Ubah">
+    <button id="logoutButton">Logout</button>
+    </div>
+  </form>
+  `;
+
 export {
   WelcomeTemplate,
   WelcomeUserTemplate,
@@ -368,4 +401,5 @@ export {
   contactTemplate,
   newsdetailTemplate,
   sliderTemplate,
+  profilset,
 };

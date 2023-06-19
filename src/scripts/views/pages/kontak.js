@@ -1,4 +1,3 @@
-import '../component/hero-element';
 import { contactTemplate } from '../templates/template-ecoaware';
 // import '../../../style/style.css';
 
