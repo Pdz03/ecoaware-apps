@@ -1,6 +1,7 @@
 const CONFIG = {
   CUACA_URL: 'https://cuaca-gempa-rest-api.vercel.app/',
   BE_URL: 'http://localhost:8080/',
+  BED_URL: 'https://backend-ecoaware.up.railway.app/',
   DEFAULT_LANGUAGE: 'en-us',
   CACHE_NAME: 'EcoAware Apps V1',
   DATABASE_NAME: 'db_ecoaware',

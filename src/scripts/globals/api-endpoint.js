@@ -13,14 +13,14 @@ const API_ENDPOINT = {
   registerAuth: `${CONFIG.BE_URL}user/registerauth`,
   loginAuth: `${CONFIG.BE_URL}user/loginauth`,
   checkSession: `${CONFIG.BE_URL}user/check-session`,
-  postArtikel: `${CONFIG.BE_URL}user/post-artikel`,
-  editArtikel: `${CONFIG.BE_URL}user/edit-artikel`,
-  getArtikel: `${CONFIG.BE_URL}get-artikel`,
-  getAllArtikel: `${CONFIG.BE_URL}get-artikel/all`,
-  confirmArtikel: `${CONFIG.BE_URL}confirm-artikel`,
-  getDetailArtikel: (artikelId) => `${CONFIG.BE_URL}get-artikel/${artikelId}`,
-  getArtikelCreated: (authorId) => `${CONFIG.BE_URL}get-artikel-created/${authorId}`,
-  deleteDataArtikel: (artikelId) => `${CONFIG.BE_URL}artikel-delete/${artikelId}`,
+  postArtikel: `${CONFIG.BED_URL}user/post-artikel`,
+  editArtikel: `${CONFIG.BED_URL}user/edit-artikel`,
+  getArtikel: `${CONFIG.BED_URL}get-artikel`,
+  getAllArtikel: `${CONFIG.BED_URL}get-artikel/all`,
+  confirmArtikel: `${CONFIG.BED_URL}confirm-artikel`,
+  getDetailArtikel: (artikelId) => `${CONFIG.BED_URL}get-artikel/${artikelId}`,
+  getArtikelCreated: (authorId) => `${CONFIG.BED_URL}get-artikel-created/${authorId}`,
+  deleteDataArtikel: (artikelId) => `${CONFIG.BED_URL}artikel-delete/${artikelId}`,
 };
 
 export default API_ENDPOINT;
