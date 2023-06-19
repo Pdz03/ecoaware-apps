@@ -3,8 +3,6 @@ import '@splidejs/splide/dist/css/splide.min.css';
 import Splide from '@splidejs/splide';
 import '../component/hero-element';
 import '../component/cuaca-bar';
-import 'select2';
-import 'select2/dist/css/select2.css';
 import { getNews } from '../../Data/news';
 import CuacaSource from '../../Data/cuacaSource';
 
@@ -27,10 +25,6 @@ const Home = {
               <div id="news-list2"></div>
           </section>
           <aside>
-          <div class="title">
-          <h3>Data cuaca terkini</h3>
-          <p>Tentukan Lokasi Anda</p>
-          </div>
           <cuaca-bar></cuara-bar>
           </aside>
           </div>
