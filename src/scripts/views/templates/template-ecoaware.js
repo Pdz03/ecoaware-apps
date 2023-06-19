@@ -192,22 +192,22 @@ const ourStoryTemplate = () => `
 <h1>Tim Kami</h1>
 <div class="tim-container">
 <div class="list-tim">
-<div id="atas">
+<div id="atas1">
 </div>
 <p>Syaifudin Fendi Prasetyo</p>
 </div>
 <div class="list-tim">
-<div id="atas">
+<div id="atas2">
 </div>
 <p>Anisa Kamalia Fitri</p>
 </div>
 <div class="list-tim">
-<div id="atas">
+<div id="atas3">
 </div>
 <p>Daffa Naufal Santoso</p>
 </div>
 <div class="list-tim">
-<div id="atas">
+<div id="atas4">
 </div>
 <p>Luthfi Khaerunnisa</p>
 </div>
