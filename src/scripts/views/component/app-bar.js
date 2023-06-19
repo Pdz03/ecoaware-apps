@@ -17,7 +17,7 @@ class AppBar extends HTMLElement {
         const resdata = response.data.dataLogin;
         console.log(resdata);
 
-        loginInit.init(resdata.id);
+        loginInit.init(resdata.id, resdata.level);
       })
       .catch((error) => {
         const appLog = this.querySelector('#app-log');

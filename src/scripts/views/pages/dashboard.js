@@ -2,6 +2,7 @@
 import $ from 'jquery';
 import toastr from 'toastr';
 import API_ENDPOINT from '../../globals/api-endpoint';
+import loginInit from '../../helpers/login-init';
 
 import { WelcomeUserTemplate, WelcomeAdminTemplate } from '../templates/template-ecoaware';
 
@@ -46,6 +47,7 @@ const Dashboard = {
       success(response) {
         const resdata = response.dataLogin;
         console.log(resdata);
+        loginInit.init(resdata.id, resdata.level);
         if (resdata.level === 'a') {
           itemContainer.innerHTML = WelcomeAdminTemplate();
           document.getElementById('level').innerHTML = `

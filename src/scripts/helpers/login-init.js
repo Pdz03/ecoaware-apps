@@ -3,15 +3,25 @@ import $ from 'jquery';
 import toastr from 'toastr';
 
 const loginInit = {
-  init(authorId) {
+  init(authorId, authorLevel) {
     const userMenu = document.querySelector('#user-menu');
     const userMenuMob = document.querySelector('#user-menumob');
-    userMenu.innerHTML = `
+
+    if (authorLevel === 'a') {
+      userMenu.innerHTML = `
+      <a href="#/kelola-artikel/">Kelola Artikel</a>
+      `;
+      userMenuMob.innerHTML = `
+      <a href="#/kelola-artikel/">Kelola Artikel</a>
+      `;
+    } else if (authorLevel === 'b') {
+      userMenu.innerHTML = `
   <a href="#/input-artikel/${authorId}">+Tambah Artikel</a>
   `;
-    userMenuMob.innerHTML = `
+      userMenuMob.innerHTML = `
   <a href="#/input-artikel/${authorId}">+Tambah Artikel</a>
   `;
+    }
 
     const navUser = document.querySelector('#drawer-user');
     const navmobUser = document.querySelector('#navmobuser');

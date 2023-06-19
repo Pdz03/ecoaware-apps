@@ -10,6 +10,12 @@ class ArtikelSource {
     return responseJson;
   }
 
+  static async getAllArtikel() {
+    const response = await axios.get(API_ENDPOINT.getAllArtikel);
+    const responseJson = await response.data.data;
+    return responseJson;
+  }
+
   static async getDetailArtikelbyID(id) {
     const response = await axios.get(API_ENDPOINT.getDetailArtikel(id));
     const responseJson = await response.data.data[0];

@@ -136,6 +136,7 @@ body{
                 top:60px;
                 position:fixed;
                 margin-bottom: 20px;
+                z-index: 999;
                 -webkit-transform: translate(200%, 0);
                 transform: translate(200%, 0);
                 transition: transform 0.3s ease;
@@ -924,7 +925,7 @@ body{
                             cursor: pointer;
                           }
                     }
-                    #image-container{
+                    #image-container, #image-edit-container{
                         margin:5px;
                         width:300px;
                         height:200px;

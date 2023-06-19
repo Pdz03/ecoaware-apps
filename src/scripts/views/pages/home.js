@@ -66,8 +66,13 @@ const Home = {
       const data1 = artikel.slice(0, 2);
       const data2 = artikel.slice(2);
       console.log(artikel);
-      newsListElement1.innerHTML = '';
-      newsListElement2.innerHTML = '';
+      if (artikel.length > 0) {
+        newsListElement1.innerHTML = '';
+        newsListElement2.innerHTML = '';
+      } else {
+        newsListElement1.innerHTML = `${createSkeletonArtikelTemplate()}`;
+        newsListElement2.innerHTML = `${createSkeletonArtikelTemplate()}`;
+      }
       data1.forEach((data) => {
         newsListElement1.innerHTML += createArtikelTemplate(data);
       });

@@ -12,9 +12,13 @@ const API_ENDPOINT = {
   loginAuth: `${CONFIG.BE_URL}user/loginauth`,
   checkSession: `${CONFIG.BE_URL}user/check-session`,
   postArtikel: `${CONFIG.BE_URL}user/post-artikel`,
+  editArtikel: `${CONFIG.BE_URL}user/edit-artikel`,
   getArtikel: `${CONFIG.BE_URL}get-artikel`,
+  getAllArtikel: `${CONFIG.BE_URL}get-artikel/all`,
+  confirmArtikel: `${CONFIG.BE_URL}confirm-artikel`,
   getDetailArtikel: (artikelId) => `${CONFIG.BE_URL}get-artikel/${artikelId}`,
   getArtikelCreated: (authorId) => `${CONFIG.BE_URL}get-artikel-created/${authorId}`,
+  deleteDataArtikel: (artikelId) => `${CONFIG.BE_URL}artikel-delete/${artikelId}`,
 };
 
 export default API_ENDPOINT;

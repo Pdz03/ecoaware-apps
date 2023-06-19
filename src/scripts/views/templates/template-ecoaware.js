@@ -110,6 +110,31 @@ const FormArtikelTemplate = () => `
 </form>
 `;
 
+const FormEditArtikelTemplate = (data) => `
+<form action="" method="POST" enctype="multipart/form-data">
+<div class="form-group">
+  <label for="author">Nama Penerbit</label>
+  <input type="text" id="nama-edit" name="name" class="form-control" placeholder="Penerbit" value="${data.author}" required/>
+</div>
+<div class="form-group">
+  <label for="author">Judul Artikel</label>
+  <input type="text" id="judul-edit" name="judul" class="form-control" placeholder="Judul Artikel" value="${data.judul}" required/>
+</div>
+<div class="form-group">
+<div class="file-upload">
+  <label for="file-edit-input" >Tidak bisa update gambar</label>
+  <input id="file-edit-input" type="file" class="file-input" accept="image/*" />
+</div>
+<div id="image-edit-container">Preview Gambar</div>
+</div>
+<div class="form-group"> 
+  <label for="author">Isi Artikel</label>
+  <textarea id="isi-edit" name="isi" class="form-control" placeholder="Isi Artikel" required/>${data.isi}</textarea>
+</div>
+<button type="submit" id="update-btn" class="btn">Update</button>
+</form>
+`;
+
 const createArtikelTemplate = (data) => {
   const tanggalFormatted = dayjs(data.tanggal).format('DD/MM/YYYY');
   let template = '';
@@ -136,8 +161,42 @@ const createArtikelTemplate = (data) => {
 const listArtikelTemplate = (data) => {
   const tanggalFormatted = dayjs(data.tanggal).format('DD/MM/YYYY');
   let status = '';
+  let button = '';
   if (data.acc === 0) {
     status = 'Menunggu Konfirmasi';
+    button = `
+    <button type="submit" id="edit-artikel" data-id="${data.id}">Edit</button>
+    <button type="submit" id="delete-artikel" data-id="${data.id}">Hapus</button>`;
+  } else if (data.acc === 1) {
+    status = 'Diterima';
+    button = `
+    <button type="submit" id="delete-artikel" data-id="${data.id}">Hapus</button>`;
+  } else if (data.acc === 2) {
+    status = 'Ditolak';
+    button = `
+    <button type="submit" id="delete-artikel" data-id="${data.id}">Hapus</button>`;
+  }
+
+  let template = '';
+
+  template += `
+  <tr>
+  <td>${data.judul}</td>
+  <td>${tanggalFormatted}</td>
+  <td>${status}</td>
+  <td>${button}</td>
+  </tr>
+`;
+  return template;
+};
+
+const listArtikelAdminTemplate = (data) => {
+  const tanggalFormatted = dayjs(data.tanggal).format('DD/MM/YYYY');
+  let status = '';
+  if (data.acc === 0) {
+    status = `
+    <button type="submit" id="terima-artikel" data-id="${data.id}">Terima</button>
+    <button type="submit" id="tolak-artikel" data-id="${data.id}">Tolak</button>`;
   } else if (data.acc === 1) {
     status = 'Diterima';
   } else if (data.acc === 2) {
@@ -149,9 +208,9 @@ const listArtikelTemplate = (data) => {
   template += `
   <tr>
   <td>${data.judul}</td>
+  <td>${data.author}</td>
   <td>${tanggalFormatted}</td>
   <td>${status}</td>
-  <td><button>Edit</button><button>Hapus</button></td>
   </tr>
 `;
   return template;
@@ -362,7 +421,9 @@ export {
   FormLoginTemplate,
   FormRegisterTemplate,
   FormArtikelTemplate,
+  FormEditArtikelTemplate,
   listArtikelTemplate,
+  listArtikelAdminTemplate,
   createArtikelTemplate,
   ourStoryTemplate,
   contactTemplate,

@@ -7,6 +7,7 @@ import ourstory from '../views/pages/tentang-kami';
 import kontak from '../views/pages/kontak';
 import detail from '../views/pages/detail';
 import inputArtikel from '../views/pages/input-artikel';
+import kelolaArtikel from '../views/pages/kelola-artikel';
 
 const routes = {
   '/': Home, // default page
@@ -19,6 +20,7 @@ const routes = {
   '/kontak': kontak,
   '/detail/:id': detail,
   '/input-artikel/:id': inputArtikel,
+  '/kelola-artikel': kelolaArtikel,
 };
 
 export default routes;

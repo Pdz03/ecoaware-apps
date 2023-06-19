@@ -59,21 +59,17 @@ const Login = {
         pass: inputPass.value,
       };
 
-      $.post(API_ENDPOINT.userLogin, initValue)
-        .done((data) => {
-          if (data.success) {
-            toastr.success('Login berhasil');
+      axios.post(API_ENDPOINT.userLogin, initValue, { withCredentials: true })
+        .then((response) => {
+          toastr.success('Login berhasil');
+          const resdata = response.data.dataLogin;
+          console.log(resdata);
 
-            loginInit.init();
-
-            // Lanjutkan ke halaman berikutnya (misalnya halaman home)
-            window.location.href = '#/dashboard';
-          } else {
-            toastr.error(data.message);
-          }
+          loginInit.init(resdata.id, resdata.level);
+          window.location.href = '#/dashboard';
         })
-        .fail(() => {
-          toastr.error('Gagal melakukan permintaan login');
+        .catch((error) => {
+          toastr.error('Gagal login');
         });
     });
   },

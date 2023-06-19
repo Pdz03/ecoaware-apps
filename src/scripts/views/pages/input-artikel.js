@@ -5,9 +5,14 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import 'datatables.net';
 import 'datatables.net-dt/css/jquery.dataTables.css';
 import API_ENDPOINT from '../../globals/api-endpoint';
+import CONFIG from '../../globals/config';
 import UrlParser from '../../routes/url-parser';
+import addArtikelInit from '../../helpers/addArtikel-init';
+import listArtikelInit from '../../helpers/listArtikel-init';
 
-import { listArtikelTemplate, FormArtikelTemplate } from '../templates/template-ecoaware';
+import {
+  listArtikelTemplate, listArtikelAdminTemplate, FormArtikelTemplate, FormEditArtikelTemplate,
+} from '../templates/template-ecoaware';
 
 import ArtikelSource from '../../Data/artikelSource';
 
@@ -24,16 +29,17 @@ const inputArtikel = {
         <button id="open-addartikel">Tambah Artikel</button>
         <div class="form-artikel" id="form-artikel" hidden>
         </div>
+        <div class="form-artikel" id="form-edit" hidden>
+        </div>
         <div class="list-artikel" id="list-artikel">
         <h2>Daftar Artikel :</h2>
         <table border="1" id="table-artikel">
-        <thead>
-        <tr>
-        <th>Judul</th><th>Tanggal</th><th>Status</th><th>Aksi</th>
-        </tr>
+        <thead id="theadList">
         </thead>
+        <form action="" method="post">
         <tbody id="listArtikelTable">
         </tbody>
+        </form>
         </table>
         </div>
   </main>
@@ -45,7 +51,9 @@ const inputArtikel = {
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const itemContainer = document.querySelector('#form-artikel');
+    const itemEditContainer = document.querySelector('#form-edit');
     const listArtikel = await ArtikelSource.getArtikelCreated(url.id);
+    const listAllArtikel = await ArtikelSource.getAllArtikel();
 
     $.ajaxSetup({
       xhrFields: {
@@ -67,23 +75,8 @@ const inputArtikel = {
       success(response) {
         const resdata = response.dataLogin;
         console.log(resdata);
-        if (resdata.level === 'a') {
-        //   itemContainer.innerHTML = WelcomeAdminTemplate();
-          document.getElementById('level').innerHTML = `
-        Dashboard Admin
-        `;
-        } else if (resdata.level === 'b') {
+        if (resdata.level === 'b') {
           itemContainer.innerHTML = FormArtikelTemplate();
-          let editor;
-          ClassicEditor
-            .create(document.querySelector('#isi'))
-            .then((newEditor) => {
-              editor = newEditor;
-              console.log('Editor was initialized successfully:', newEditor);
-            })
-            .catch((error) => {
-              console.error('Error initializing editor:', error);
-            });
           document.getElementById('level').innerHTML = `
           Dashboard Kontributor
           `;
@@ -95,70 +88,97 @@ const inputArtikel = {
             btnAdd.setAttribute('hidden', '');
           });
 
-          const today = new Date();
-          const formattedDate = today.toISOString().substring(0, 10);
-          const inputAuthor = document.getElementById('nama');
-          const inputJudul = document.getElementById('judul');
-          const fileInput = document.getElementById('file-input');
-          // const inputIsi = editor.getData();
-          const submitButton = document.getElementById('submit-btn');
-          const imageContainer = document.getElementById('image-container');
+          addArtikelInit.init(url.id, resdata.name);
 
-          inputAuthor.value = resdata.name;
-
-          fileInput.addEventListener('change', (event) => {
-            const selectedFile = event.target.files[0];
-            if (selectedFile) {
-              const reader = new FileReader();
-              reader.onload = (e) => {
-                const imageUrl = e.target.result;
-                imageContainer.innerHTML = `<img src="${imageUrl}" alt="Uploaded Image" />`;
-              };
-              reader.readAsDataURL(selectedFile);
-            }
-          });
-
-          submitButton.addEventListener('click', (event) => {
-            event.preventDefault();
-            const selectedFile = fileInput.files[0];
-            if (selectedFile) {
-              const formData = new FormData();
-              formData.append('image', selectedFile);
-              formData.append('tanggal', formattedDate);
-              formData.append('author', inputAuthor.value);
-              formData.append('judul', inputJudul.value);
-              formData.append('isi', editor.getData());
-
-              console.log('File terpilih:', selectedFile);
-              console.log(formData);
-
-              // Kirim data ke server menggunakan metode POST (misalnya, menggunakan AJAX)
-              // Pastikan URL endpoint, metode, dan pengaturan lainnya sesuai dengan backend Anda
-              const config = {
-                headers: {
-                  'Content-Type': 'multipart/form-data',
-                },
-              };
-
-              axios.post(API_ENDPOINT.postArtikel, formData, config)
-                .then((response) => {
-                  toastr.success('Artikel berhasil ter-submit, tunggu konfirmasi dari admin');
-                  setTimeout(() => {
-                    window.location.reload();
-                  }, 1000);
-                })
-                .catch((error) => {
-                  toastr.error('Gagal mendaftar user');
-                });
-            }
-          });
+          const theadList = document.querySelector('#theadList');
+          theadList.innerHTML = `
+          <tr>
+          <th>Judul</th><th>Tanggal</th><th>Status</th><th>Aksi</th>
+          </tr>
+          `;
 
           const listArtikelContainer = document.querySelector('#listArtikelTable');
 
-          console.log(listArtikel);
-
           listArtikel.forEach((data) => {
             listArtikelContainer.innerHTML += listArtikelTemplate(data);
+          });
+
+          listArtikelInit.init();
+
+          $('#table-artikel').on('click', '#edit-artikel', (event) => {
+            const artikelId = $(event.target).data('id');
+
+            console.log(artikelId);
+            // Kirim permintaan DELETE ke backend
+            $.ajaxSetup({
+              xhrFields: {
+                withCredentials: true,
+              },
+            });
+
+            $.ajax({
+              url: API_ENDPOINT.getDetailArtikel(artikelId),
+              type: 'GET',
+              success(res) {
+                const detailArtikel = res.data[0];
+
+                itemEditContainer.innerHTML = FormEditArtikelTemplate(detailArtikel);
+
+                itemEditContainer.removeAttribute('hidden');
+
+                let Editeditor;
+                ClassicEditor
+                  .create(document.querySelector('#isi-edit'))
+                  .then((newEditor) => {
+                    Editeditor = newEditor;
+                    console.log('Editor was initialized successfully:', newEditor);
+                  })
+                  .catch((error) => {
+                    console.error('Error initializing editor:', error);
+                  });
+
+                const todayEdit = new Date();
+                const formattedEditDate = todayEdit.toISOString().substring(0, 10);
+                const inputEditAuthor = document.getElementById('nama-edit');
+                const inputEditJudul = document.getElementById('judul-edit');
+                const imageEditContainer = document.getElementById('image-edit-container');
+                const editButton = document.getElementById('update-btn');
+                imageEditContainer.innerHTML = `<img src="${CONFIG.BE_URL}${detailArtikel.gambar}" alt="Uploaded Image" />`;
+
+                editButton.addEventListener('click', (event) => {
+                  event.preventDefault();
+
+                  const initValue = {
+                    artikelID: artikelId,
+                    authorID: url.id,
+                    tanggal: formattedEditDate,
+                    author: inputEditAuthor.value,
+                    judul: inputEditJudul.value,
+                    isi: Editeditor.getData(),
+                  };
+
+                  axios.post(
+                    API_ENDPOINT.editArtikel,
+                    initValue,
+                    { withCredentials: true },
+                  )
+                    .then((response) => {
+                      toastr.success('Artikel berhasil ter-update, tunggu konfirmasi dari admin');
+                      setTimeout(() => {
+                        window.location.reload();
+                      }, 1000);
+                    })
+                    .catch((error) => {
+                      toastr.error('Gagal update');
+                    });
+                });
+
+                console.log(detailArtikel);
+              },
+              error() {
+                toastr.error('Gagal mengambil data artikel');
+              },
+            });
           });
         }
       },
