@@ -43,10 +43,13 @@
     "whatwg-fetch": "^3.6.2"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^38.0.1",
     "@splidejs/splide": "^4.1.4",
     "axios": "^1.4.0",
     "buffer": "^6.0.3",
+    "ckeditor": "^4.12.1",
     "crypto-browserify": "^3.12.0",
+    "datatables.net-dt": "^1.13.4",
     "dayjs": "^1.11.8",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",

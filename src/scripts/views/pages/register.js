@@ -2,6 +2,7 @@
 import $ from 'jquery';
 import toastr from 'toastr';
 import 'toastr/build/toastr.css';
+import API_ENDPOINT from '../../globals/api-endpoint';
 import { FormRegisterTemplate } from '../templates/template-ecoaware';
 
 const Register = {
@@ -47,7 +48,8 @@ const Register = {
       return true;
     }
 
-    function handleFormSubmit() {
+    submitForm.addEventListener('click', (event) => {
+      event.preventDefault();
       if (!validateForm()) {
         return;
       }
@@ -58,7 +60,7 @@ const Register = {
         pass: inputPass.value,
       };
 
-      $.post('http://localhost:8080/user/add', initValue, (data) => {
+      $.post(API_ENDPOINT.userRegister, initValue, (data) => {
         console.log(data);
         if (data.success) {
           toastr.success('User berhasil terdaftar, silakan login');
@@ -67,39 +69,9 @@ const Register = {
           toastr.error('Gagal mendaftar user');
         }
       });
-    }
+    });
 
     // Tambahkan event listener pada saat form disubmit
-    submitForm.addEventListener('click', handleFormSubmit);
-
-    // submitForm.addEventListener('click', (event) => {
-    //   event.preventDefault();
-
-    //   const initValue = {
-    //     name: inputName.value,
-    //     email: inputEmail.value,
-    //     pass: inputPass.value,
-    //   };
-
-    //   // $.post('http://localhost:8080/user/add', initValue, (data) => {
-    //   //   console.log(data);
-    //   // });
-
-    //   $.post('http://localhost:8080/user/add', initValue, (data) => {
-    //     console.log(data);
-    //     if (data.success) {
-    //       toastr.success('User berhasil terdaftar');
-    //     } else {
-    //       toastr.error('Gagal mendaftar user');
-    //     }
-    //   });
-
-    //   // if (inputName.value === '' || inputEmail.value === '' || inputPass.value === '') {
-    //   //   console.log('Ada data yang belum terisi!');
-    //   // } else {
-    //   //   console.log(initValue);
-    //   // }
-    // });
   },
 };
 export default Register;

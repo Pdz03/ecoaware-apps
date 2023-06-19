@@ -1,3 +1,8 @@
+/* eslint-disable import/no-extraneous-dependencies */
+import CONFIG from '../../globals/config';
+
+const dayjs = require('dayjs');
+
 const WelcomeTemplate = () => `
 <div class="welcome-text">
 <h2>Halo, Selamat Datang!</h2>
@@ -63,9 +68,9 @@ const FormRegisterTemplate = () => `
 </div>
 <div class="register-text">
 <h2>Daftar</h2>
-<form action="localhost:8080/user/add" method="POST">
+<form action="" method="POST">
 <div class="form-group">
-            <input type="text" id="nama" name="username" class="form-control" placeholder="Username" required/>
+            <input type="text" id="nama" name="name" class="form-control" placeholder="Username" required/>
           </div>
           <div class="form-group">
             <input type="email" id="email" name="email" class="form-control" placeholder="Email" required/>
@@ -78,6 +83,79 @@ const FormRegisterTemplate = () => `
 </form>
 </div>
 `;
+
+const FormArtikelTemplate = () => `
+<form action="" method="POST" enctype="multipart/form-data">
+<div class="form-group">
+  <label for="author">Nama Penerbit</label>
+  <input type="text" id="nama" name="name" class="form-control" placeholder="Penerbit" required/>
+</div>
+<div class="form-group">
+  <label for="author">Judul Artikel</label>
+  <input type="text" id="judul" name="judul" class="form-control" placeholder="Judul Artikel" required/>
+</div>
+<div class="form-group">
+<div class="file-upload">
+  <label for="gambar">File Gambar</label>
+  <label for="file-input" class="file-label">Pilih Gambar</label>
+  <input id="file-input" type="file" class="file-input" accept="image/*" />
+</div>
+<div id="image-container">Preview Gambar</div>
+</div>
+<div class="form-group"> 
+  <label for="author">Isi Artikel</label>
+  <textarea id="isi" name="isi" class="form-control" placeholder="Isi Artikel" required/></textarea>
+</div>
+<button type="submit" id="submit-btn" class="btn">Submit</button>
+</form>
+`;
+
+const createArtikelTemplate = (data) => {
+  const tanggalFormatted = dayjs(data.tanggal).format('DD/MM/YYYY');
+  let template = '';
+
+  template += `
+  <a href="#/detail/${data.id}">
+<div class="news-item">
+<div class="image-news">
+  <img src="${CONFIG.BE_URL}${data.gambar}" alt="${data.judul}" />
+</div>
+<div class="title">
+  <h3>${data.judul}</h3>
+  <p>${tanggalFormatted} - Diposting oleh ${data.author}</p>
+</div>
+<div class="content">
+  <p>${data.isi}...</p>
+</div>
+</div>
+</a>
+`;
+  return template;
+};
+
+const listArtikelTemplate = (data) => {
+  const tanggalFormatted = dayjs(data.tanggal).format('DD/MM/YYYY');
+  let status = '';
+  if (data.acc === 0) {
+    status = 'Menunggu Konfirmasi';
+  } else if (data.acc === 1) {
+    status = 'Diterima';
+  } else if (data.acc === 2) {
+    status = 'Ditolak';
+  }
+
+  let template = '';
+
+  template += `
+  <tr>
+  <td>${data.judul}</td>
+  <td>${tanggalFormatted}</td>
+  <td>${status}</td>
+  <td><button>Edit</button><button>Hapus</button></td>
+  </tr>
+`;
+  return template;
+};
 
 const ourStoryTemplate = () => `
 <div class="about">
@@ -171,16 +249,20 @@ const contactTemplate = () => `
 </div>
 `;
 
-const newsdetailTemplate = (berita) => `
+const newsdetailTemplate = (data) => {
+  const tanggalFormatted = dayjs(data.tanggal).format('DD/MM/YYYY');
+  let template = '';
+
+  template += `
   <div class="detail-title">
-    <h2>${berita.judul}</h2>
-    <p>${berita.tanggal}</p>
+    <h2>${data.judul}</h2>
   </div>
   <div class="image-news">
-    <img src="${berita.gambar}" alt="${berita.judul}" />
+    <img src="${CONFIG.BE_URL}${data.gambar}" alt="${data.judul}" />
   </div>
   <div class="detail-content">
-    <p><b>${berita.tanggal} - </b>${berita.isi}</p>
+    <div class="byAuthor"><b>${tanggalFormatted} - </b>Diposting oleh ${data.author}</div>
+    ${data.isi}
   </div>
   <hr>
   <div class="coment-container">
@@ -253,6 +335,9 @@ const newsdetailTemplate = (berita) => `
 </div>
 `;
 
+  return template;
+};
+
 const sliderTemplate = () => `
 <div class="splide">
 <div class="splide__track">
@@ -269,25 +354,6 @@ const sliderTemplate = () => `
 </div>
 </div>
 `;
-
-const newnews = () => `
-<h1>Tambah Berita</h1>
-  <form id="newsForm">
-    <label for="judul">Judul:</label>
-    <input type="text" id="judul" name="judul" required><br><br>
-    
-    <label for="tanggal">Tanggal:</label>
-    <input type="text" id="tanggal" name="tanggal" required><br><br>
-    
-    <label for="isi">Isi:</label><br>
-    <textarea id="isi" name="isi" required></textarea><br><br>
-    
-    <label for="gambar">Gambar:</label>
-    <input type="file" id="gambar" name="gambar" accept="image/*" required><br><br>
-    
-    <input type="submit" value="Tambah Berita">
-  </form>
-  `;
 
   const profilset = () => `
   <h1>Profil Setting</h1>
@@ -328,10 +394,12 @@ export {
   WelcomeAdminTemplate,
   FormLoginTemplate,
   FormRegisterTemplate,
+  FormArtikelTemplate,
+  listArtikelTemplate,
+  createArtikelTemplate,
   ourStoryTemplate,
   contactTemplate,
   newsdetailTemplate,
   sliderTemplate,
-  newnews,
   profilset,
 };

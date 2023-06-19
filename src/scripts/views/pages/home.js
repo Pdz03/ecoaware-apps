@@ -5,8 +5,11 @@ import '../component/hero-element';
 import '../component/cuaca-bar';
 import { getNews } from '../../Data/news';
 import CuacaSource from '../../Data/cuacaSource';
+import ArtikelSource from '../../Data/artikelSource';
 
-import { sliderTemplate } from '../templates/template-ecoaware';
+import { sliderTemplate, createArtikelTemplate } from '../templates/template-ecoaware';
+
+import { createSkeletonArtikelTemplate, createSkeletonCuacaStartTemplate } from '../templates/skeleton-template';
 // import '../../../style/style.css';
 
 const Home = {
@@ -20,12 +23,18 @@ const Home = {
               <h1>Isu Terkini Terkait Perubahan Iklim</h1>
             </div>
             <hr>
-              <div id="news-list"></div> 
+              <div id="news-list">
+              ${createSkeletonArtikelTemplate()}
+              </div> 
               <div id="slide-item"></div>
-              <div id="news-list2"></div>
+              <div id="news-list2">
+              ${createSkeletonArtikelTemplate()}
+              </div>
           </section>
           <aside>
-          <cuaca-bar></cuara-bar>
+          <cuaca-bar>
+          ${createSkeletonCuacaStartTemplate()}
+          </cuara-bar>
           </aside>
           </div>
         </main>
@@ -37,6 +46,7 @@ const Home = {
     const newsListElement1 = document.getElementById('news-list');
     const newsListElement2 = document.getElementById('news-list2');
     const slideItemElement = document.getElementById('slide-item');
+    const cuacaBar = document.querySelector('cuaca-bar');
     slideItemElement.innerHTML = sliderTemplate();
 
     new Splide('.splide', {
@@ -47,58 +57,42 @@ const Home = {
     }).mount();
 
     // Ambil semua data berita
-    const newsData = getNews();
+    try {
+      const artikel = await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(ArtikelSource.getArtikel());
+        }, 2000); // Menunggu selama 2 detik sebelum memanggil resolve
+      });
+      const data1 = artikel.slice(0, 2);
+      const data2 = artikel.slice(2);
+      console.log(artikel);
+      newsListElement1.innerHTML = '';
+      newsListElement2.innerHTML = '';
+      data1.forEach((data) => {
+        newsListElement1.innerHTML += createArtikelTemplate(data);
+      });
+      data2.forEach((data) => {
+        newsListElement2.innerHTML += createArtikelTemplate(data);
+      });
+    } catch (error) {
+      console.error(error);
+      newsListElement1.innerHTML = `${createSkeletonArtikelTemplate()}`;
+      newsListElement2.innerHTML = `${createSkeletonArtikelTemplate()}`;
+    }
 
-    // Ambil 2 berita pertama untuk news-list
-    const newsDataList1 = newsData.slice(0, 2);
-
-    // Ambil 2 berita berikutnya untuk news-list2
-    const newsDataList2 = newsData.slice(2, 4);
-
-    // Membuat elemen daftar untuk setiap objek berita dalam data newsDataList1
-    newsDataList1.forEach((beritaItem) => {
-      const listItemHtml = `
-        <div class="news-item">
-          <div class="image-news">
-            <img src="${beritaItem.gambar}" alt="${beritaItem.judul}" />
-          </div>
-          <div class="title">
-            <h3>${beritaItem.judul}</h3>
-            <p>${beritaItem.tanggal}</p>
-          </div>
-          <div class="content">
-            <p>${beritaItem.isi}...</p>
-            <a href="#/detail/${beritaItem.id}">Lihat Selengkapnya</a>
-          </div>
-        </div>
-      `;
-      newsListElement1.innerHTML += listItemHtml;
-    });
-
-    // Membuat elemen daftar untuk setiap objek berita dalam data newsDataList2
-    newsDataList2.forEach((beritaItem) => {
-      const listItemHtml = `
-        <div class="news-item">
-          <div class="image-news">
-            <img src="${beritaItem.gambar}" alt="${beritaItem.judul}" />
-          </div>
-          <div class="title">
-            <h3>${beritaItem.judul}</h3>
-            <p>${beritaItem.tanggal}</p>
-          </div>
-          <div class="content">
-            <p>${beritaItem.isi}...</p>
-            <a href="#/detail/${beritaItem.id}">Lihat Selengkapnya</a>
-          </div>
-        </div>
-      `;
-      newsListElement2.innerHTML += listItemHtml;
-    });
-
-    const cuacaBar = document.querySelector('cuaca-bar');
-    const dataProvinsi = await CuacaSource.ambilProvinsi();
-    const areaProvinsi = dataProvinsi.data.areas;
-    cuacaBar.value = areaProvinsi;
+    try {
+      const dataProvinsi = await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(CuacaSource.ambilProvinsi());
+        }, 1000); // Menunggu selama 2 detik sebelum memanggil resolve
+      });
+      cuacaBar.innerHTML = '';
+      const areaProvinsi = dataProvinsi.data.areas;
+      cuacaBar.value = areaProvinsi;
+    } catch (error) {
+      console.error(error);
+      cuacaBar.innerHTML = `${createSkeletonCuacaStartTemplate()}`;
+    }
   },
 };
 

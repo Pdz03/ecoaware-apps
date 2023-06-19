@@ -3,7 +3,7 @@ import API_ENDPOINT from '../globals/api-endpoint';
 
 const axios = require('axios');
 
-class PemadamSource {
+class CuacaSource {
   static async cuacaTerkini() {
     const response = await axios.get(API_ENDPOINT.cuaca);
     const responseJson = await response.data;
@@ -36,4 +36,4 @@ class PemadamSource {
   }
 }
 
-export default PemadamSource;
+export default CuacaSource;

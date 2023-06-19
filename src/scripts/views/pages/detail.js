@@ -1,7 +1,11 @@
 import '../component/hero-element';
+import '../component/cuaca-bar';
 import { getNewsByTitle } from '../../Data/news';
 import UrlParser from '../../routes/url-parser';
 import { newsdetailTemplate } from '../templates/template-ecoaware';
+import { createSkeletonCuacaStartTemplate } from '../templates/skeleton-template';
+import CuacaSource from '../../Data/cuacaSource';
+import ArtikelSource from '../../Data/artikelSource';
 
 const detail = {
   async render() {
@@ -12,6 +16,11 @@ const detail = {
       <section class="content">
         <div id="news-detail"></div>
       </section>
+      <aside>
+      <cuaca-bar>
+      ${createSkeletonCuacaStartTemplate()}
+      </cuara-bar>
+      </aside>
       </div>
     </main>
     `;
@@ -19,10 +28,29 @@ const detail = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const berita = getNewsByTitle(url.id);
+    // const berita = getNewsByTitle(url.id);
+
+    const detailArtikel = await ArtikelSource.getDetailArtikelbyID(url.id);
+
+    console.log(detailArtikel);
 
     const newsDetailElement = document.getElementById('news-detail');
-    newsDetailElement.innerHTML = newsdetailTemplate(berita);
+    newsDetailElement.innerHTML = newsdetailTemplate(detailArtikel);
+
+    const cuacaBar = document.querySelector('cuaca-bar');
+    try {
+      const dataProvinsi = await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(CuacaSource.ambilProvinsi());
+        }, 1000); // Menunggu selama 2 detik sebelum memanggil resolve
+      });
+      cuacaBar.innerHTML = '';
+      const areaProvinsi = dataProvinsi.data.areas;
+      cuacaBar.value = areaProvinsi;
+    } catch (error) {
+      console.error(error);
+      cuacaBar.innerHTML = `${createSkeletonCuacaStartTemplate()}`;
+    }
   },
 };
 

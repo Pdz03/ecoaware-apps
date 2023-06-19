@@ -1,10 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import $ from 'jquery';
 import toastr from 'toastr';
+import API_ENDPOINT from '../../globals/api-endpoint';
 
 import { WelcomeUserTemplate, WelcomeAdminTemplate } from '../templates/template-ecoaware';
 
-const axios = require('axios');
+// const axios = require('axios');
 
 const Dashboard = {
   async render() {
@@ -31,7 +32,7 @@ const Dashboard = {
       },
     });
 
-    $.get('http://localhost:8080/user/check-session', (data) => {
+    $.get(API_ENDPOINT.checkSession, (data) => {
       if (!data.success) {
         // Jika tidak ada sesi tersimpan, arahkan ke halaman login
         toastr.error('Anda belum login!');
@@ -39,9 +40,11 @@ const Dashboard = {
       }
     });
 
-    axios.get('http://localhost:8080/user/loginauth', { withCredentials: true })
-      .then((response) => {
-        const resdata = response.data.dataLogin;
+    $.ajax({
+      url: API_ENDPOINT.loginAuth,
+      method: 'GET',
+      success(response) {
+        const resdata = response.dataLogin;
         console.log(resdata);
         if (resdata.level === 'a') {
           itemContainer.innerHTML = WelcomeAdminTemplate();
@@ -60,10 +63,11 @@ const Dashboard = {
         Selamat Datang, ${resdata.name}!
         `;
         }
-      })
-      .catch((error) => {
+      },
+      error(error) {
         console.log(error);
-      });
+      },
+    });
     // const itemContainer = document.querySelector('post-list');
     // itemContainer.innerHTML = '';
     // const { restaurants } = await PemadamSource.listResto();
