@@ -33,10 +33,6 @@ const WelcomeAdminTemplate = () => `
 <div class="welcome-text">
 <h2 id="welcome-admin"></h2>
 <p>Sebagai Admin, kita dapat mengelola artikel yang masuk, mengelola para kontributor yang mendaftar, mengelola pesan masuk dan komentar.</p>
-<div class="button-element">
-<a class="btn" href="#/login">Masuk</a>
-<a class="btn" href="#/register">Daftar</a>
-</div>
 </div>
 <div class="welcome-image">
 <img src="./images/welcome-image.png" alt="welcome-image">
@@ -211,6 +207,20 @@ const listArtikelAdminTemplate = (data) => {
   <td>${data.author}</td>
   <td>${tanggalFormatted}</td>
   <td>${status}</td>
+  </tr>
+`;
+  return template;
+};
+
+const listUserTemplate = (data) => {
+  let template = '';
+
+  template += `
+  <tr>
+  <td>${data.nama}</td>
+  <td>${data.email}</td>
+  <td>${data.password}</td>
+  <td><button type="submit" id="delete-user" data-id="${data.id}">Delete</button></td>
   </tr>
 `;
   return template;
@@ -414,7 +424,7 @@ const sliderTemplate = () => `
 </div>
 `;
 
-  const profilset = () => `
+const profilset = () => `
   <h1>Profil Setting</h1>
   <form id="profileForm">
     <label for="nama">Nama:</label>
@@ -456,6 +466,7 @@ export {
   FormArtikelTemplate,
   FormEditArtikelTemplate,
   listArtikelTemplate,
+  listUserTemplate,
   listArtikelAdminTemplate,
   createArtikelTemplate,
   ourStoryTemplate,

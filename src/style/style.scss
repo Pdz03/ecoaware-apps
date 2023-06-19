@@ -946,6 +946,39 @@ body{
                     width:100%;
                     table{
                         width:80%;
+                        border: 0;
+                        th{
+                            padding:5px;
+                            background-color: #ebebeb;
+                            border: 2px black solid;
+                        }
+                        td{
+                            padding:5px;
+                            border: 1px black solid;
+                            button{
+                                width:80px;
+                            }
+                        }
+                    }
+                }
+                .list-user{
+                    margin-top: 20px;
+                    width:100%;
+                    table{
+                        width:80%;
+                        border: 0;
+                        th{
+                            padding:5px;
+                            background-color: #ebebeb;
+                            border: 2px black solid;
+                        }
+                        td{
+                            padding:5px;
+                            border: 1px black solid;
+                            button{
+                                width:80px;
+                            }
+                        }
                     }
                 }
             #form-login{

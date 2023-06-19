@@ -1,5 +1,5 @@
 import { profilset } from '../templates/template-ecoaware';
-import '../../../style/style.css';
+// import '../../../style/style.css';
 
 const Profil = {
   async render() {
@@ -17,19 +17,19 @@ const Profil = {
     const tanggalLahirToggle = document.querySelector('#tanggalLahirToggle');
     const tanggalLahirContainer = document.querySelector('#tanggalLahirContainer');
 
-    tanggalLahirToggle.addEventListener('click', function() {
+    tanggalLahirToggle.addEventListener('click', () => {
       tanggalLahirContainer.style.display = tanggalLahirContainer.style.display === 'none' ? 'block' : 'none';
     });
 
     const gantiPassword = document.querySelector('#gantiPassword');
     const passwordContainer = document.querySelector('#passwordContainer');
 
-    gantiPassword.addEventListener('click', function() {
+    gantiPassword.addEventListener('click', () => {
       passwordContainer.style.display = passwordContainer.style.display === 'none' ? 'block' : 'none';
     });
 
     const profileForm = document.querySelector('#profileForm');
-    profileForm.addEventListener('submit', function(event) {
+    profileForm.addEventListener('submit', (event) => {
       event.preventDefault();
 
       // Ambil nilai input dari form
@@ -38,7 +38,8 @@ const Profil = {
       const email = document.querySelector('#email').value;
 
       // Ambil nilai password jika container password ditampilkan
-      let passwordLama, passwordBaru;
+      let passwordLama; let
+        passwordBaru;
       if (passwordContainer.style.display === 'block') {
         passwordLama = document.querySelector('#password_lama').value;
         passwordBaru = document.querySelector('#password_baru').value;

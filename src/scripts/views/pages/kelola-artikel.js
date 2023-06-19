@@ -1,14 +1,11 @@
+/* eslint-disable no-shadow */
+/* eslint-disable no-unused-vars */
 /* eslint-disable import/no-extraneous-dependencies */
 import $ from 'jquery';
 import toastr from 'toastr';
-// import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import 'datatables.net';
 import 'datatables.net-dt/css/jquery.dataTables.css';
 import API_ENDPOINT from '../../globals/api-endpoint';
-// import CONFIG from '../../globals/config';
-// import UrlParser from '../../routes/url-parser';
-// import addArtikelInit from '../../helpers/addArtikel-init';
-// import listArtikelInit from '../../helpers/listArtikel-init';
 
 import {
   listArtikelAdminTemplate,
@@ -25,15 +22,9 @@ const kelolaArtikel = {
     <main id="content">
         <h1 class="dashboard" id="level"></h1>
         <hr>
-        <h2>Tambahkan Artikel Baru</h2>
-        <button id="open-addartikel">Tambah Artikel</button>
-        <div class="form-artikel" id="form-artikel" hidden>
-        </div>
-        <div class="form-artikel" id="form-edit" hidden>
-        </div>
         <div class="list-artikel" id="list-artikel">
         <h2>Daftar Artikel :</h2>
-        <table border="1" id="table-artikel">
+        <table id="table-artikel">
         <thead id="theadList">
         </thead>
         <form action="" method="post">
@@ -49,10 +40,6 @@ const kelolaArtikel = {
     return html;
   },
   async afterRender() {
-    // const url = UrlParser.parseActiveUrlWithoutCombiner();
-    // const itemContainer = document.querySelector('#form-artikel');
-    // const itemEditContainer = document.querySelector('#form-edit');
-    // const listArtikel = await ArtikelSource.getArtikelCreated(url.id);
     const listAllArtikel = await ArtikelSource.getAllArtikel();
 
     $.ajaxSetup({
@@ -76,7 +63,6 @@ const kelolaArtikel = {
         const resdata = response.dataLogin;
         console.log(resdata);
         if (resdata.level === 'a') {
-        //   itemContainer.innerHTML = WelcomeAdminTemplate();
           document.getElementById('level').innerHTML = `
         Dashboard Admin
         `;
@@ -165,10 +151,6 @@ const kelolaArtikel = {
         console.log(error);
       },
     });
-    // const itemContainer = document.querySelector('post-list');
-    // itemContainer.innerHTML = '';
-    // const { restaurants } = await PemadamSource.listResto();
-    // itemContainer.value = restaurants;
   },
 };
 export default kelolaArtikel;

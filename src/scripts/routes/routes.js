@@ -9,6 +9,7 @@ import detail from '../views/pages/detail';
 import Profil from '../views/pages/profil';
 import inputArtikel from '../views/pages/input-artikel';
 import kelolaArtikel from '../views/pages/kelola-artikel';
+import kelolaUser from '../views/pages/kelola-user';
 
 const routes = {
   '/': Home, // default page
@@ -23,6 +24,7 @@ const routes = {
   '/profil': Profil,
   '/input-artikel/:id': inputArtikel,
   '/kelola-artikel': kelolaArtikel,
+  '/kelola-user': kelolaUser,
 };
 
 export default routes;

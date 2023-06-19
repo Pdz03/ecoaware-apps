@@ -5,14 +5,22 @@ import toastr from 'toastr';
 const loginInit = {
   init(authorId, authorLevel) {
     const userMenu = document.querySelector('#user-menu');
+    const adminMenu = document.querySelector('#admin-menu');
+    const adminMenuMob = document.querySelector('#admin-menumob');
     const userMenuMob = document.querySelector('#user-menumob');
 
     if (authorLevel === 'a') {
       userMenu.innerHTML = `
       <a href="#/kelola-artikel/">Kelola Artikel</a>
       `;
+      adminMenu.innerHTML = `
+      <a href="#/kelola-user/">Kelola User</a>
+      `;
       userMenuMob.innerHTML = `
       <a href="#/kelola-artikel/">Kelola Artikel</a>
+      `;
+      adminMenuMob.innerHTML = `
+      <a href="#/kelola-user/">Kelola User</a>
       `;
     } else if (authorLevel === 'b') {
       userMenu.innerHTML = `
@@ -89,6 +97,8 @@ const loginInit = {
 
               userMenu.innerHTML = '';
               userMenuMob.innerHTML = '';
+              adminMenu.innerHTML = '';
+              adminMenuMob.innerHTML = '';
               navUser.innerHTML = '';
               // Lanjutkan ke halaman berikutnya (misalnya halaman home)
               window.location.href = '#/login';

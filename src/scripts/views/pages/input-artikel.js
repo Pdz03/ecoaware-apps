@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-shadow */
 /* eslint-disable import/no-extraneous-dependencies */
 import $ from 'jquery';
 import toastr from 'toastr';
@@ -11,7 +13,7 @@ import addArtikelInit from '../../helpers/addArtikel-init';
 import listArtikelInit from '../../helpers/listArtikel-init';
 
 import {
-  listArtikelTemplate, listArtikelAdminTemplate, FormArtikelTemplate, FormEditArtikelTemplate,
+  listArtikelTemplate, FormArtikelTemplate, FormEditArtikelTemplate,
 } from '../templates/template-ecoaware';
 
 import ArtikelSource from '../../Data/artikelSource';
@@ -33,7 +35,7 @@ const inputArtikel = {
         </div>
         <div class="list-artikel" id="list-artikel">
         <h2>Daftar Artikel :</h2>
-        <table border="1" id="table-artikel">
+        <table id="table-artikel">
         <thead id="theadList">
         </thead>
         <form action="" method="post">

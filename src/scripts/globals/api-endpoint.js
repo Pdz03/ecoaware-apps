@@ -8,6 +8,8 @@ const API_ENDPOINT = {
   DETAIL: (id) => `${CONFIG.CUACA_URL}detail/${id}`,
   userRegister: `${CONFIG.BE_URL}user/register`,
   userLogin: `${CONFIG.BE_URL}user/login`,
+  getAllUser: `${CONFIG.BE_URL}user/all`,
+  deleteUser: (userId) => `${CONFIG.BE_URL}user/${userId}`,
   registerAuth: `${CONFIG.BE_URL}user/registerauth`,
   loginAuth: `${CONFIG.BE_URL}user/loginauth`,
   checkSession: `${CONFIG.BE_URL}user/check-session`,

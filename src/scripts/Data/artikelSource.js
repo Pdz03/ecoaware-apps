@@ -4,6 +4,12 @@ import API_ENDPOINT from '../globals/api-endpoint';
 const axios = require('axios');
 
 class ArtikelSource {
+  static async getUser() {
+    const response = await axios.get(API_ENDPOINT.getAllUser);
+    const responseJson = await response.data.data;
+    return responseJson;
+  }
+
   static async getArtikel() {
     const response = await axios.get(API_ENDPOINT.getArtikel);
     const responseJson = await response.data.data;

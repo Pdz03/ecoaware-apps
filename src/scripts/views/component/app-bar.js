@@ -44,6 +44,7 @@ class AppBar extends HTMLElement {
     <nav id="drawer" class="navmob">
     <ul class="navlistmob">
     <li class="navitemsmob" id="user-menumob"></li>
+    <li class="navitemsmob" id="admin-menumob"></li>
     <li class="navitemsmob"><a href="#/home">Beranda</a></li>
     <li class="navitemsmob">
       <a href="#/ourstory">Tentang</a>
@@ -65,6 +66,7 @@ class AppBar extends HTMLElement {
     </div>
     <ul class="navlist">
     <li class="navitems" id="user-menu"></li>
+    <li class="navitems" id="admin-menu"></li>
       <li class="navitems"><a href="#/home">Beranda</a></li>
       <li class="navitems">
         <a href="#/ourstory">Tentang</a>
