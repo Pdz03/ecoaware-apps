@@ -1529,10 +1529,36 @@ body{
                     padding:5px;
                     border-radius: 5px;
                     border: 2px solid black;
-                    #atas{
+                    #atas1{
                         width:100%;
                         height:120px;
-                        background-color: #444736;
+                        background-image: url('../public/images/fendi.jpg');
+                        background-size: cover;
+                        background-position: center;
+
+                    }
+                    #atas2 {
+                        width: 100%;
+                        height: 120px;
+                        background-image: url('../public/images/anisa.jpg');
+                        background-size: cover;
+                        background-position: center;
+                    }
+        
+                    #atas3 {
+                        width: 100%;
+                        height: 120px;
+                        background-image: url('../public/images/daffa.jpg');
+                        background-size: cover;
+                        background-position: center;
+                    }
+        
+                    #atas4 {
+                        width: 100%;
+                        height: 120px;
+                        background-image: url('../public/images/luthfi.jpg');
+                        background-size: cover;
+                        background-position: center;
                     }
                     p{
                         text-align: center;

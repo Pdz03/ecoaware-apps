@@ -6,6 +6,7 @@ import Dashboard from '../views/pages/dashboard';
 import ourstory from '../views/pages/tentang-kami';
 import kontak from '../views/pages/kontak';
 import detail from '../views/pages/detail';
+import Profil from '../views/pages/profil';
 import inputArtikel from '../views/pages/input-artikel';
 import kelolaArtikel from '../views/pages/kelola-artikel';
 
@@ -19,6 +20,7 @@ const routes = {
   '/ourstory': ourstory,
   '/kontak': kontak,
   '/detail/:id': detail,
+  '/profil': Profil,
   '/input-artikel/:id': inputArtikel,
   '/kelola-artikel': kelolaArtikel,
 };
