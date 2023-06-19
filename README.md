@@ -1,2 +1,2 @@
 # ecoaware-apps
-Branch HTML ini isinya adalah rancangan website dalam bentuk html, tanpa campur tangan JavaScript
+Ini adalah source code utama dari EcoAware Apps yang kemudian akan terhubung ke source code back-end
