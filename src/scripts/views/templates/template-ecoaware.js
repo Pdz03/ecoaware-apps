@@ -139,7 +139,7 @@ const createArtikelTemplate = (data) => {
   <a href="#/detail/${data.id}">
 <div class="news-item">
 <div class="image-news">
-  <img src="${CONFIG.BED_URL}${data.gambar}" alt="${data.judul}" />
+  <img src="${CONFIG.BE_URL}${data.gambar}" alt="${data.judul}" />
 </div>
 <div class="title">
   <h3>${data.judul}</h3>
@@ -327,14 +327,14 @@ const newsdetailTemplate = (data) => {
     <h2>${data.judul}</h2>
   </div>
   <div class="image-news">
-    <img src="${CONFIG.BED_URL}${data.gambar}" alt="${data.judul}" />
+    <img src="${CONFIG.BE_URL}${data.gambar}" alt="${data.judul}" />
   </div>
   <div class="detail-content">
     <div class="byAuthor"><b>${tanggalFormatted} - </b>Diposting oleh ${data.author}</div>
     ${data.isi}
   </div>
   <hr>
-  <div class="coment-container">
+  <div class="coment-container" hidden>
   <h3>Komentar</h3>
   <form>
   <div class="form-group">
