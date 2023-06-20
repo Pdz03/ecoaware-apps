@@ -20,6 +20,10 @@ const Login = {
     return html;
   },
   async afterRender() {
+    toastr.error('Saat ini fungsi login belum dapat berfungsi dengan baik, anda akan kembali ke halaman beranda dalam 3 detik');
+    setTimeout(() => {
+      window.location.href = '#/home';
+    }, 3000);
     $.ajaxSetup({
       xhrFields: {
         withCredentials: true,
