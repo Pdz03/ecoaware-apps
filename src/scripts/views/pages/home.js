@@ -3,7 +3,6 @@ import '@splidejs/splide/dist/css/splide.min.css';
 import Splide from '@splidejs/splide';
 import '../component/hero-element';
 import '../component/cuaca-bar';
-import { getNews } from '../../Data/news';
 import CuacaSource from '../../Data/cuacaSource';
 import ArtikelSource from '../../Data/artikelSource';
 

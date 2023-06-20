@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import CONFIG from '../../globals/config';
 
 const dayjs = require('dayjs');
 
@@ -14,7 +13,7 @@ agar kita memiliki masa depan yang lebih baik.”</p>
 </div>
 </div>
 <div class="welcome-image">
-<img src="./images/welcome-image.png" alt="welcome-image">
+<img class="lazyload" data-src="./images/welcome-image.png" alt="welcome-image">
 </div>
 `;
 
@@ -25,7 +24,7 @@ const WelcomeUserTemplate = () => `
 </div>
 </div>
 <div class="welcome-image">
-<img src="./images/welcome-image.png" alt="welcome-image">
+<img class="lazyload" data-src="./images/welcome-image.png" alt="welcome-image">
 </div>
 `;
 
@@ -35,13 +34,13 @@ const WelcomeAdminTemplate = () => `
 <p>Sebagai Admin, kita dapat mengelola artikel yang masuk, mengelola para kontributor yang mendaftar, mengelola pesan masuk dan komentar.</p>
 </div>
 <div class="welcome-image">
-<img src="./images/welcome-image.png" alt="welcome-image">
+<img class="lazyload" data-src="./images/welcome-image.png" alt="welcome-image">
 </div>
 `;
 
 const FormLoginTemplate = () => `
 <div class="login-image">
-<img src="./images/register-login-image.png" alt="login-image">
+<img class="lazyload" data-src="./images/register-login-image.png" alt="login-image">
 </div>
 <div class="login-text">
 <h2>Masuk</h2>
@@ -60,7 +59,7 @@ const FormLoginTemplate = () => `
 
 const FormRegisterTemplate = () => `
 <div class="register-image">
-<img src="./images/register-login-image.png" alt="register-image">
+<img class="lazyload" data-src="./images/register-login-image.png" alt="register-image">
 </div>
 <div class="register-text">
 <h2>Daftar</h2>
@@ -139,7 +138,7 @@ const createArtikelTemplate = (data) => {
   <a href="#/detail/${data.id}">
 <div class="news-item">
 <div class="image-news">
-  <img src="${CONFIG.BE_URL}${data.gambar}" alt="${data.judul}" />
+  <img class="lazyload" data-src="${data.gambar}" alt="${data.judul}" />
 </div>
 <div class="title">
   <h3>${data.judul}</h3>
@@ -230,7 +229,7 @@ const ourStoryTemplate = () => `
 <div class="about">
 <h1>Tentang Kami</h1>
 <div id="about-container">
-<img src="./images/image1.jpg" alt="profil-img">
+<img class="lazyload" data-src="./images/image1.jpg" alt="profil-img">
 <p>
   <b>EcoAware</b> merupakan platform digital yang akan menyediakan informasi tentang berbagai aspek isu lingkungan seperti sumber daya alam, ekosistem, dan perubahan iklim. Ini akan memberikan data dan informasi yang diperlukan untuk mengambil tindakan yang tepat untuk menjaga keberlanjutan dan melindungi lingkungan.
   
@@ -286,7 +285,7 @@ const ourStoryTemplate = () => `
 
 const contactTemplate = () => `
 <div class="tambahan" id ="body-tambahan">
-  <img src="images/pana.jpg" alt="pana" />
+  <img class="lazyload" data-src="images/pana.jpg" alt="pana" />
   <h3>Merasa ingin menghubungi kami?<br>
   Kirimkan pertanyaan Anda di sini dan kami<br>
   akan menghubungi Anda sesegera mungkin!</h3>
@@ -310,10 +309,10 @@ const contactTemplate = () => `
     <p>Follow Us</p>
   </div>
   <div class="sos">
-    <img src="images/instagram.png" alt="instagram" />
-    <img src="images/gmail.png" alt="gmail" />
-    <img src="images/facebook.png" alt="facebook" />
-    <img src="images/linkedin.png" alt="linkdn" />
+    <img class="lazyload" data-src="images/instagram.png" alt="instagram" />
+    <img class="lazyload" data-src="images/gmail.png" alt="gmail" />
+    <img class="lazyload" data-src="images/facebook.png" alt="facebook" />
+    <img class="lazyload" data-src="images/linkedin.png" alt="linkdn" />
   </div>
 </div>
 `;
@@ -327,7 +326,7 @@ const newsdetailTemplate = (data) => {
     <h2>${data.judul}</h2>
   </div>
   <div class="image-news">
-    <img src="${CONFIG.BE_URL}${data.gambar}" alt="${data.judul}" />
+    <img class="lazyload" data-src="${data.gambar}" alt="${data.judul}" />
   </div>
   <div class="detail-content">
     <div class="byAuthor"><b>${tanggalFormatted} - </b>Diposting oleh ${data.author}</div>
@@ -352,7 +351,7 @@ const newsdetailTemplate = (data) => {
   <hr>
   <div class="coment_item_container">
     <div class="coment_item">
-        <img src="https://i.ibb.co/Zh4SvhQ/default.jpg" alt="user photo profile" crossorigin="anonymous">
+        <img class="lazyload" data-src="https://i.ibb.co/Zh4SvhQ/default.jpg" alt="user photo profile" crossorigin="anonymous">
       <div class="content">
       <h3 class="user_name">Eco Ways</h2>
       <small class="coment_date">09 Juni 2023</small>
@@ -360,7 +359,7 @@ const newsdetailTemplate = (data) => {
       </div>
     </div>
     <div class="reply_item">
-      <img src="https://i.ibb.co/Zh4SvhQ/default.jpg" alt="user photo profile" crossorigin="anonymous">
+      <img class="lazyload" data-src="https://i.ibb.co/Zh4SvhQ/default.jpg" alt="user photo profile" crossorigin="anonymous">
       <div class="content">
       <h3 class="user_name">Tukang bakso</h2>
       <small class="reply_date">11 Juni 2023</small>
@@ -375,7 +374,7 @@ const newsdetailTemplate = (data) => {
   </div>
   <div class="coment_item_container">
   <div class="coment_item">
-      <img src="https://i.ibb.co/Zh4SvhQ/default.jpg" alt="user photo profile" crossorigin="anonymous">
+      <img class="lazyload" data-src="https://i.ibb.co/Zh4SvhQ/default.jpg" alt="user photo profile" crossorigin="anonymous">
     <div class="content">
     <h3 class="user_name">Eko Wes</h2>
     <small class="coment_date">08 Juni 2023</small>
@@ -385,7 +384,7 @@ const newsdetailTemplate = (data) => {
 </div>
 <div class="coment_item_container">
 <div class="coment_item">
-  <img src="https://i.ibb.co/Zh4SvhQ/default.jpg" alt="user photo profile" crossorigin="anonymous">
+  <img class="lazyload" data-src="https://i.ibb.co/Zh4SvhQ/default.jpg" alt="user photo profile" crossorigin="anonymous">
   <div class="content">
   <h3 class="user_name">Pahlawan kemaleman</h2>
   <small class="coment_date">07 Juni 2023</small>
@@ -393,7 +392,7 @@ const newsdetailTemplate = (data) => {
   </div>
 </div>
 <div class="reply_item">
-  <img src="https://i.ibb.co/Zh4SvhQ/default.jpg" alt="user photo profile" crossorigin="anonymous">
+  <img class="lazyload" data-src="https://i.ibb.co/Zh4SvhQ/default.jpg" alt="user photo profile" crossorigin="anonymous">
   <div class="content">
   <h3 class="user_name">EyeAware Solution</h2>
   <small class="reply_date">12 Juni 2023</small>
@@ -411,9 +410,9 @@ const sliderTemplate = () => `
 <div class="splide">
 <div class="splide__track">
   <ul class="splide__list">
-    <li class="splide__slide" data-splide-interval="5000"><img src="./images/image1.jpg" /></li>
-    <li class="splide__slide" data-splide-interval="5000"><img src="./images/image2.jpg" /></li>
-    <li class="splide__slide" data-splide-interval="5000"><img src="./images/image3.jpg" /></li>
+    <li class="splide__slide" data-splide-interval="5000"><img class="lazyload" data-src="./images/image1.jpg" /></li>
+    <li class="splide__slide" data-splide-interval="5000"><img class="lazyload" data-src="./images/image2.jpg" /></li>
+    <li class="splide__slide" data-splide-interval="5000"><img class="lazyload" data-src="./images/image3.jpg" /></li>
     <!-- Tambahkan slide lainnya sesuai kebutuhan -->
   </ul>
 </div>
